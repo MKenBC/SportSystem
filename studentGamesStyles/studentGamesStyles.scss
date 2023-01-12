@@ -1,0 +1,335 @@
+@import "./external";
+
+#bg {
+  height: 100vh;
+  width: 100vw;
+  background: $bgColor;
+}
+
+button {
+  cursor: pointer;
+}
+
+header {
+  .head {
+    height: 10vh;
+    display: flex;
+    background: $pupWhite;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 150px;
+
+    .home-title {
+      font-size: 30px;
+
+      span {
+        color: $red;
+      }
+    }
+
+    #btnBack {
+      font-size: 15px;
+      font-weight: bolder;
+      padding: 7px 30px;
+      background: $orange;
+      color: white;
+      border: 3px solid $orange;
+      border-radius: 10px;
+      transition: 0.5s;
+
+      &:hover {
+        color: lighten($primaryColor, 20%);
+        background: $pupWhite;
+        border-color: lighten($primaryColor, 20%);
+      }
+    }
+  }
+}
+
+// Table Styles
+main {
+  .container {
+    max-width: 80vw;
+    margin: 2rem auto;
+    padding-bottom: 2rem;
+
+    .table-wrapper {
+      text-align: start;
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th,
+        td {
+          text-align: left;
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
+          padding: 0.5rem;
+        }
+
+        .randTrue {
+          font-weight: 600;
+          color: #5b23f9;
+        }
+
+        .randFalse {
+          font-weight: 600;
+          color: #f95309;
+        }
+
+        .statActive {
+          font-weight: 600;
+          color: green;
+        }
+
+        .statFinished {
+          font-weight: 600;
+          color: $red;
+        }
+
+        .tr:hover {
+          background: #f5f5f5;
+          transform: scale(1.01);
+          box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2),
+            -1px -1px 8px rgba(0, 0, 0, 0.2);
+          transition: 0.15s;
+        }
+
+        th {
+          background: white;
+          padding: 1rem auto;
+        }
+      }
+    }
+  }
+}
+
+.tHeader {
+  width: 100%;
+  background: #184a45ff;
+  padding: 1rem;
+  text-align: center;
+
+  h3 {
+    color: white;
+  }
+}
+
+//Table Row Button Styles
+.btn {
+  background: transparent;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.5s;
+}
+
+.btn-details {
+  color: $blue;
+  border: 1px solid $blue;
+
+  &:hover {
+    background: $blue;
+    color: white;
+  }
+}
+
+.btn-view {
+  color: $orange;
+  border: 1px solid $orange;
+
+  &:hover {
+    background: $orange;
+    color: white;
+  }
+}
+
+.underHead {
+  padding: 0.5rem 2rem;
+  text-align: end;
+
+  .gcID {
+    font-weight: bold;
+  }
+
+  p {
+    display: inline-block;
+  }
+}
+
+//Modal Styles
+.modal-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.26);
+  display: none;
+
+  .modal-container {
+    position: relative;
+    background: linear-gradient(to right, rgba(242, 242, 242, 0.9)),
+      url(./Images/Background.jpg) center/cover no-repeat;
+    text-align: center;
+    width: 400px;
+    margin: 5rem auto;
+    -webkit-box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+    animation-duration: 0.5s;
+    border-radius: 20px;
+
+    form {
+      display: grid;
+      padding: 0px 40px;
+
+      h3 {
+        margin: 10px 0 0 0;
+        padding: 10px 0 0 0;
+        font-size: 23px;
+        span {
+          font-size: 40px;
+          color: $red;
+        }
+      }
+
+      p {
+        padding: 10px 25px;
+      }
+
+      input,
+      select {
+        margin-top: 13px;
+        padding: 10px 16px;
+        border-radius: 15px;
+        border-color: transparent;
+        text-indent: 0.5rem;
+        outline: none;
+
+        &:focus {
+          outline: 2px solid lighten($primaryColor, 20%);
+        }
+      }
+
+      textarea {
+        width: 100%;
+        height: 10rem;
+        margin-top: 13px;
+        padding: 10px 16px;
+        border-radius: 15px;
+        border-color: transparent;
+        outline: none;
+        resize: none;
+
+        &:focus {
+          outline: 2px solid lighten($primaryColor, 20%);
+        }
+      }
+
+      .check-container {
+        margin-top: 13px;
+      }
+    }
+
+    .btn-container {
+      margin: 30px 40px 0 40px;
+
+      button {
+        text-align: center;
+        padding: 7px 20px;
+        margin-bottom: 30px;
+        text-decoration: none;
+        font-size: 13px;
+        text-transform: uppercase;
+        font-weight: bold;
+        border-radius: 20px;
+        transition: 0.5s;
+        width: 15rem;
+      }
+
+      #btnCreateGame {
+        border: 3px solid lighten($primaryColor, 20%);
+        color: lighten($primaryColor, 20%);
+
+        &:hover {
+          border-color: $orange;
+          background: $orange;
+          color: $pupWhite;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+}
+
+#gameDetailsWrapper {
+  .dataContents {
+    display: grid;
+    padding: 0px 40px;
+
+    h3 {
+      margin: 20px 0 0 0;
+      padding: 10px 0 0 0;
+      font-size: 23px;
+      span {
+        font-size: 40px;
+        color: $red;
+      }
+    }
+
+    .info {
+      padding: 10px 25px;
+    }
+  }
+
+  .txtsCont {
+    margin: 20px 60px;
+
+    .infoContainer {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0px;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+
+      .label {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .check-container {
+    label {
+      cursor: pointer;
+    }
+  }
+
+  #btnDeleteGame {
+    border: 3px solid lighten($primaryColor, 20%);
+    color: lighten($primaryColor, 20%);
+
+    &:hover {
+      border-color: $red;
+      background: $red;
+      color: $pupWhite;
+      transition: 0.5s;
+    }
+  }
+}
+
+#gameDetailsWrapper {
+  .modal-container {
+    margin-top: 10rem;
+    .txtsCont {
+      padding-bottom: 50px;
+
+      #txtFacilityStatus {
+        font-weight: 600;
+      }
+    }
+  }
+}

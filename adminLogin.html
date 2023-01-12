@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./adminLoginStyles/adminLoginStyles.css" />
+    <title>PUP SportsSystem - Admin | Login</title>
+    <script type="text/javascript">
+      function preventBack() {
+        window.history.forward();
+      }
+      setTimeout("preventBack()", 0);
+      window.onunload = function () {
+        null;
+      };
+    </script>
+  </head>
+  <body>
+    <div id="bg">
+      <header>
+        <div class="head">
+          <a class="home-title" href="./index.html">
+            <h1>Sports<span>System</span></h1></a
+          >
+        </div>
+        <!-- Modal Submit Email -->
+        <div class="modal-wrapper" id="submitEmailWrapper">
+          <div class="modal-container">
+            <form action="">
+              <h3>Enter Email<span>.</span></h3>
+              <p id="info01">Please fill all the information needed.</p>
+
+              <input
+                id="email02"
+                type="text"
+                placeholder="Email"
+                autocomplete="off"
+                required
+              />
+              <select id="adminType02">
+                <option value="" selected disabled hidden>Admin Type</option>
+                <option value="MainAdmin">Main Admin</option>
+                <option value="EventAdmin">Event Admin</option>
+              </select>
+            </form>
+
+            <div class="btn-container">
+              <button id="btnSubmitEmail">Submit</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Reset Password -->
+        <div class="modal-wrapper" id="resetPasswordWrapper">
+          <div class="modal-container">
+            <form action="">
+              <h3>Reset Password<span>.</span></h3>
+              <p id="info02">Please fill all the information needed.</p>
+
+              <input
+                id="verifyCode01"
+                type="text"
+                placeholder="Verification Code"
+                autocomplete="off"
+                required
+              />
+              <input
+                id="resetPass01"
+                type="password"
+                placeholder="New Password"
+                autocomplete="off"
+                required
+              />
+              <input
+                id="resetPass02"
+                type="password"
+                placeholder="Confirm Password"
+                autocomplete="off"
+                required
+              />
+            </form>
+
+            <div class="btn-container">
+              <button id="btnUpdatePassword">Update</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="main">
+          <h3>Another tournament event?</h3>
+          <h1 class="title">Welcome! Admin<span>.</span></h1>
+          <p id="notif">Please Complete all the informations needed. Thanks</p>
+          <!-- <a id="create" href="./adminCreateAccount.html">Create Account</a> -->
+
+          <form action="">
+            <input
+              id="email01"
+              type="email"
+              placeholder="Email"
+              autocomplete="off"
+              required
+            />
+            <input
+              id="pass01"
+              type="password"
+              placeholder="Password"
+              autocomplete="off"
+              required
+            />
+
+            <select id="adminType01">
+              <option value="" selected disabled hidden>Admin Type</option>
+              <option value="MainAdmin">Main Admin</option>
+              <option value="EventAdmin">Event Admin</option>
+            </select>
+          </form>
+          <button id="btnShowForgotPass">Forgot Password?</button>
+
+          <div class="btn-container">
+            <a href="./index.html" class="btn-home">Go Back</a>
+            <a href="#" class="btn-login">Login</a>
+          </div>
+        </div>
+        <div class="side"></div>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="module" src="./adminLogin.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+  </body>
+</html>

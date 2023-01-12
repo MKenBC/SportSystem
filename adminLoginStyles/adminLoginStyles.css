@@ -1,0 +1,345 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #666666;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+#bg {
+  height: 100vh;
+  width: 100vw;
+  background: -webkit-gradient(linear, left top, right top, from(#f2f2f2), color-stop(#f2f2f2), color-stop(#f2f2f2), color-stop(#f2f2f2), color-stop(#f2f2f2), color-stop(#f2f2f2), color-stop(rgba(242, 242, 242, 0.8)), color-stop(rgba(242, 242, 242, 0.5)), color-stop(rgba(242, 242, 242, 0)), color-stop(rgba(242, 242, 242, 0)), color-stop(rgba(242, 242, 242, 0)), to(rgba(242, 242, 242, 0))), url(./Images/Background.jpg) right/contain fixed no-repeat;
+  background: linear-gradient(to right, #f2f2f2, #f2f2f2, #f2f2f2, #f2f2f2, #f2f2f2, #f2f2f2, rgba(242, 242, 242, 0.8), rgba(242, 242, 242, 0.5), rgba(242, 242, 242, 0), rgba(242, 242, 242, 0), rgba(242, 242, 242, 0), rgba(242, 242, 242, 0)), url(./Images/Background.jpg) right/contain fixed no-repeat;
+}
+
+header .head {
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .head .home-title h1 {
+  margin-left: 150px;
+  font-size: 30px;
+}
+
+header .head .home-title h1 span {
+  color: #dc3545;
+}
+
+header .head .home-title:hover {
+  text-decoration: underline;
+}
+
+main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 70vh;
+      grid-template-rows: 70vh;
+  height: 70vh;
+  width: 100vw;
+}
+
+main .main {
+  margin: 50px 0 0 150px;
+}
+
+main .main h1 {
+  font-size: 50px;
+}
+
+main .main h1 span {
+  color: #dc3545;
+  font-size: 80px;
+}
+
+main .main p {
+  margin-top: 30px;
+  display: inline-block;
+}
+
+main .main form {
+  margin: 40px 175px 0 0;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "em em em em em em" "ps ps ps ps ps ps" "ad ad ad ad ad ad";
+}
+
+main .main form input,
+main .main form select {
+  margin-top: 13px;
+  padding: 15px 16px;
+  border-radius: 15px;
+  border-color: transparent;
+  background: white;
+  text-indent: 0.5rem;
+  outline: none;
+}
+
+main .main form input:focus,
+main .main form select:focus {
+  outline: 2px solid #999999;
+}
+
+main .main form #email01 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-area: em;
+}
+
+main .main form #pass01 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-area: ps;
+}
+
+main .main form #adminType01 {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 6;
+  grid-area: ad;
+}
+
+main .main #btnShowForgotPass {
+  border: none;
+  margin-top: 20px;
+  font-size: 16px;
+  color: blue;
+  font-style: italic;
+  background: none;
+}
+
+main .main #btnShowForgotPass:hover {
+  text-decoration: underline;
+}
+
+main .main .btn-container {
+  margin: 50px 175px 20px 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+main .main .btn-container a {
+  text-align: center;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bolder;
+  border-radius: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+main .main .btn-container .btn-home {
+  margin-right: 20px;
+  border: 1px solid #999999;
+  color: #999999;
+}
+
+main .main .btn-container .btn-home:hover {
+  border-color: #d9a420;
+  background: #d9a420;
+  color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+main .main .btn-container .btn-login {
+  background: maroon;
+  color: white;
+}
+
+main .main .btn-container .btn-login:hover {
+  border: 1px solid maroon;
+  background: transparent;
+  color: maroon;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+@media only screen and (max-width: 1220px) {
+  main {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 3fr 1fr;
+        grid-template-columns: 3fr 1fr;
+  }
+  main .main form {
+    margin: 40px 0 0 0;
+  }
+  main .main form input {
+    margin-right: 175px;
+  }
+}
+
+@media only screen and (max-width: 1079px) {
+  header .head .home-title {
+    margin: 0 0 0 50px;
+  }
+  header .head .home-title h1 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  main .main {
+    margin: 20px 50px 0 50px;
+  }
+  main .main .btn-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  main .main .btn-container .btn-home {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  #bg {
+    height: 100vh;
+    width: 100vw;
+    background: -webkit-gradient(linear, left top, right top, from(#f2f2f2), color-stop(#f2f2f2), color-stop(#f2f2f2), color-stop(#f2f2f2), color-stop(#f2f2f2), color-stop(#f2f2f2), color-stop(rgba(242, 242, 242, 0.8)), color-stop(rgba(242, 242, 242, 0.5)), color-stop(rgba(242, 242, 242, 0)), color-stop(rgba(242, 242, 242, 0)), color-stop(rgba(242, 242, 242, 0)), to(rgba(242, 242, 242, 0))), url(./Images/Background.jpg) right/cover fixed no-repeat;
+    background: linear-gradient(to right, #f2f2f2, #f2f2f2, #f2f2f2, #f2f2f2, #f2f2f2, #f2f2f2, rgba(242, 242, 242, 0.8), rgba(242, 242, 242, 0.5), rgba(242, 242, 242, 0), rgba(242, 242, 242, 0), rgba(242, 242, 242, 0), rgba(242, 242, 242, 0)), url(./Images/Background.jpg) right/cover fixed no-repeat;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #bg {
+    background: -webkit-gradient(linear, left top, right top, from(rgba(242, 242, 242, 0.8))), url(./Images/Background.jpg) center/cover fixed no-repeat;
+    background: linear-gradient(to right, rgba(242, 242, 242, 0.8)), url(./Images/Background.jpg) center/cover fixed no-repeat;
+  }
+  main {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    text-align: center;
+  }
+  main .main h1 {
+    font-size: 2.5rem;
+  }
+  main .main form input {
+    margin: 13px 0 0 0;
+  }
+  main .main .btn-container {
+    margin: 50px 0 20px 0;
+  }
+}
+
+.modal-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.26);
+  display: none;
+}
+
+.modal-wrapper .modal-container {
+  position: relative;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(242, 242, 242, 0.9))), url(./Images/Background.jpg) center/cover no-repeat;
+  background: linear-gradient(to right, rgba(242, 242, 242, 0.9)), url(./Images/Background.jpg) center/cover no-repeat;
+  text-align: center;
+  width: 400px;
+  margin: 5rem auto;
+  -webkit-box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  border-radius: 20px;
+}
+
+.modal-wrapper .modal-container form {
+  display: -ms-grid;
+  display: grid;
+  padding: 0px 40px;
+}
+
+.modal-wrapper .modal-container form h3 {
+  margin: 10px 0 0 0;
+  padding: 10px 0 0 0;
+  font-size: 23px;
+}
+
+.modal-wrapper .modal-container form h3 span {
+  font-size: 40px;
+  color: #dc3545;
+}
+
+.modal-wrapper .modal-container form p {
+  padding: 10px 25px;
+}
+
+.modal-wrapper .modal-container form input,
+.modal-wrapper .modal-container form select {
+  margin-top: 13px;
+  padding: 10px 16px;
+  border-radius: 15px;
+  border-color: transparent;
+  text-indent: 0.5rem;
+  outline: none;
+}
+
+.modal-wrapper .modal-container form input:focus,
+.modal-wrapper .modal-container form select:focus {
+  outline: 2px solid #999999;
+}
+
+.modal-wrapper .modal-container .btn-container {
+  margin: 30px 40px 0 40px;
+}
+
+.modal-wrapper .modal-container .btn-container button {
+  text-align: center;
+  padding: 7px 20px;
+  margin-bottom: 30px;
+  text-decoration: none;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  width: 15rem;
+}
+
+.modal-wrapper .modal-container .btn-container #btnSubmitEmail,
+.modal-wrapper .modal-container .btn-container #btnUpdatePassword {
+  border: 3px solid #999999;
+  color: #999999;
+}
+
+.modal-wrapper .modal-container .btn-container #btnSubmitEmail:hover,
+.modal-wrapper .modal-container .btn-container #btnUpdatePassword:hover {
+  border-color: #d9a420;
+  background: #d9a420;
+  color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#submitEmailWrapper .modal-container {
+  margin: 15rem auto;
+}
+
+#resetPasswordWrapper .modal-container {
+  margin: 10rem auto;
+}
+/*# sourceMappingURL=adminLoginStyles.css.map */

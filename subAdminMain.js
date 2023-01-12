@@ -1,0 +1,903 @@
+//#region - Firestore
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDoqG0ODWDSbC38vN77LJ40WUUFfKF6csk",
+  authDomain: "sportsystem-5899c.firebaseapp.com",
+  projectId: "sportsystem-5899c",
+  storageBucket: "sportsystem-5899c.appspot.com",
+  messagingSenderId: "73095528533",
+  appId: "1:73095528533:web:ba1c3018920492a42494dc",
+};
+
+const app = initializeApp(firebaseConfig);
+
+//-------------------IMPORT-----------------------------------------------------------------------------
+
+import {
+  getFirestore,
+  query,
+  doc,
+  writeBatch,
+  getDoc,
+  getDocs,
+  collection,
+  orderBy,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+} from "https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js";
+
+const db = getFirestore();
+//#endregion
+
+//#region - Elemet References
+//-------------------ELEMENT REFERENCES-----------------------------------------------------------------
+document.querySelector("#tableHeader").textContent =
+  localStorage.getItem("subAdminUsername") + " Events";
+
+let HoldAdminUserName = localStorage.getItem("subAdminUsername");
+let HoldAdminID = localStorage.getItem("subAdminEmial");
+
+const btnShowUpdateDetails = document.querySelector("#btnShowUpdateDetails");
+const updateWrapper = document.querySelector("#updateWrapper");
+const info04 = document.querySelector("#info04");
+const fName = document.querySelector("#fName");
+const lName = document.querySelector("#lName");
+const userName = document.querySelector("#userName");
+const btnUpdateDesc = document.querySelector("#btnUpdateDesc");
+
+const btnShowUpPass = document.querySelector("#btnShowUpdatePassword");
+const passWrapper = document.querySelector("#passWrapper");
+const info05 = document.querySelector("#info05");
+const oldPass = document.querySelector("#oldPass");
+const newPass01 = document.querySelector("#newPass01");
+const newPass02 = document.querySelector("#newPass02");
+const btnUpdatePass = document.querySelector("#btnUpdatePass");
+
+const btnShowDeleteAccount = document.querySelector("#btnShowDeleteAccount");
+const deleteWrapper = document.querySelector("#deleteWrapper");
+const info06 = document.querySelector("#info06");
+const passDel = document.querySelector("#passDel");
+const checkDel = document.querySelector("#checkDel");
+const btnDeleteAccount = document.querySelector("#btnDeleteAccount");
+
+const btnShowCreateEvent = document.querySelector("#btnShowCreateEvent");
+const createEventWrapper = document.querySelector("#createEventWrapper");
+const info01 = document.querySelector("#info01");
+const syStart01 = document.querySelector("#syStart01");
+const syEnd01 = document.querySelector("#syEnd01");
+const eventName01 = document.querySelector("#eventName01");
+const eventDate01 = document.querySelector("#eventDate01");
+const btnCreateEvent = document.querySelector("#btnCreateEvent");
+
+const editEventWrapper = document.querySelector("#editEventWrapper");
+const info02 = document.querySelector("#info02");
+const btnEditEvent = document.querySelector("#btnEditEvent");
+const syStart02 = document.querySelector("#syStart02");
+const syEnd02 = document.querySelector("#syEnd02");
+const eventName02 = document.querySelector("#eventName02");
+const eventDate02 = document.querySelector("#eventDate02");
+
+const deleteEventWrapper = document.querySelector("#deleteEventWrapper");
+const info03 = document.querySelector("#info03");
+const btnDeleteEvent = document.querySelector("#btnDeleteEvent");
+const checkDeleteEvent = document.querySelector("#checkDeleteEvent");
+const txtSY = document.querySelector("#txtSY");
+const txtEN = document.querySelector("#txtEN");
+const txtD = document.querySelector("#txtD");
+const txtS = document.querySelector("#txtS");
+const txtV = document.querySelector("#txtV");
+
+const tableEvents = document.querySelector("#tableEvents");
+const trs = tableEvents.getElementsByClassName("tr");
+const sortEvent = document.querySelector("#sortEvent");
+const searchEvent = document.querySelector("#searchEvent");
+const btnExport = document.querySelector("#btnExport");
+const txtArea1 = document.querySelector("#txtArea1");
+//#endregion
+
+//-------------------METHODS----------------------------------------------------------------------------
+
+//#region - Show Modal Function
+btnShowCreateEvent.addEventListener("click", () => {
+  createEventWrapper.style.display = "block";
+});
+
+btnShowUpdateDetails.addEventListener("click", async () => {
+  let ref = doc(db, "SubAdminAccounts", HoldAdminID);
+  const docSnap = await getDoc(ref);
+  fName.value = docSnap.data().FirstName;
+  lName.value = docSnap.data().LastName;
+  userName.value = docSnap.data().Username;
+  updateWrapper.style.display = "block";
+});
+
+let sPass;
+btnShowUpPass.addEventListener("click", async () => {
+  passWrapper.style.display = "block";
+
+  let ref = doc(db, "SubAdminAccounts", HoldAdminID);
+  let docSnap = await getDoc(ref);
+  sPass = docSnap.data().Password;
+});
+
+btnShowDeleteAccount.addEventListener("click", async () => {
+  deleteWrapper.style.display = "block";
+
+  let ref = doc(db, "SubAdminAccounts", HoldAdminID);
+  let docSnap = await getDoc(ref);
+  sPass = docSnap.data().Password;
+});
+//#endregion
+
+//#region - Hide Modal Function
+window.addEventListener("click", (e) => {
+  if (e.target === createEventWrapper) {
+    createEventWrapper.style.display = "none";
+    info01.textContent = "Please fill all the information needed";
+    info01.style.color = "";
+    syStart01.value = "";
+    syEnd01.value = "";
+    eventName01.value = "";
+    eventDate01.value = "";
+  }
+
+  if (e.target === editEventWrapper) {
+    editEventWrapper.style.display = "none";
+    info02.textContent = "Please fill all the information needed";
+    info02.style.color = "";
+    syStart02.value = "";
+    syEnd02.value = "";
+    eventName02.value = "";
+    eventDate02.value = "";
+  }
+
+  if (e.target === deleteEventWrapper) {
+    deleteEventWrapper.style.display = "none";
+    info03.textContent = "This informations will be deleted.";
+    info03.style.color = "";
+    checkDeleteEvent.checked = false;
+  }
+
+  if (e.target === updateWrapper) {
+    updateWrapper.style.display = "none";
+    info04.textContent = "Please fill all the information needed";
+    info04.style.color = "";
+    fName.value = "";
+    lName.value = "";
+    userName.value = "";
+  }
+
+  if (e.target === passWrapper) {
+    passWrapper.style.display = "none";
+    info05.textContent =
+      "To update the password you need to input Current Password";
+    info05.style.color = "";
+    oldPass.value = "";
+    newPass01.value = "";
+    newPass02.value = "";
+  }
+
+  if (e.target === deleteWrapper) {
+    deleteWrapper.style.display = "none";
+    info06.textContent = "This will erase all information about the admin.";
+    info06.style.color = "";
+    passDel.value = "";
+    checkDel.checked = false;
+  }
+});
+//#endregion
+
+//#region - Create Event Method
+async function CreateEvent() {
+  const eventDate01A = new Date(eventDate01.value);
+  let txtInfo = "*Please fill";
+
+  if (syStart01.value == "") {
+    txtInfo += " From,";
+  }
+
+  if (syEnd01.value == "") {
+    txtInfo += " To,";
+  }
+
+  if (eventName01.value == "") {
+    txtInfo += " Event Name,";
+  }
+
+  if (eventDate01.value == "") {
+    txtInfo += " Date,";
+  }
+
+  if (
+    syStart01.value == "" ||
+    syEnd01.value == "" ||
+    eventName01.value == "" ||
+    eventDate01.value == ""
+  ) {
+    swal("Oww!", txtInfo, "error");
+    // info01.textContent = txtInfo;
+    // info01.style.color = "red";
+  }
+
+  if (
+    syStart01.value != "" &&
+    syEnd01.value != "" &&
+    eventName01.value != "" &&
+    eventDate01.value != ""
+  ) {
+    if (
+      syStart01.value >= 2000 &&
+      syStart01.value <= 2999 &&
+      syEnd01.value >= 2000 &&
+      syEnd01.value <= 2999
+    ) {
+      if (syStart01.value < syEnd01.value) {
+        if (syEnd01.value - syStart01.value == 1) {
+          if (
+            syStart01.value == eventDate01A.getFullYear() ||
+            syEnd01.value == eventDate01A.getFullYear()
+          ) {
+            await addDoc(collection(db, "Events"), {
+              From: syStart01.value,
+              To: syEnd01.value,
+              EventName: eventName01.value,
+              Date: eventDate01.value,
+              Status: "Upcoming",
+              Visibility: "Hidden",
+              Creator: HoldAdminUserName,
+              Email: HoldAdminID,
+            })
+              .then(() => {
+                // alert("Data Added");
+                swal("Wow!", "Event Created Successfully!", "success").then(
+                  () => {
+                    createEventWrapper.style.display = "none";
+                    info01.textContent =
+                      "Please fill all the information needed";
+                    info01.style.color = "";
+                    syStart01.value = "";
+                    syEnd01.value = "";
+                    eventName01.value = "";
+                    eventDate01.value = "";
+                    window.location.reload();
+                  }
+                );
+              })
+              .catch((error) => {
+                swal(
+                  "Oww!",
+                  "*Unsuccessuful operation, error:" + error,
+                  "error"
+                );
+                // alert("Unsuccessuful operation, error:" + error);
+              });
+          } else {
+            swal("Oww!", "*Date Year must match either From or To", "error");
+            // info01.textContent = "*Date Year must match either From or To";
+            // info01.style.color = "red";
+          }
+        } else {
+          swal("Oww!", "*School year Difference must be 1", "error");
+          // info01.textContent = "*School year Difference must be 1";
+          // info01.style.color = "red";
+        }
+      } else {
+        swal("Oww!", "*School year From must be less than To", "error");
+        // info01.textContent = "*School year From must be less than To";
+        // info01.style.color = "red";
+      }
+    } else {
+      swal(
+        "Oww!",
+        "*School year must be less than 3000 and grater than 1999",
+        "error"
+      );
+      // info01.textContent =
+      //   "*School year must be less than 3000 and grater than 1999";
+      // info01.style.color = "red";
+    }
+  }
+}
+//#endregion
+
+//#region - Sort Event
+async function SortEvent() {
+  tableEvents.innerHTML = ``;
+  tableEvents.insertAdjacentHTML(
+    "beforeend",
+    `         <tr>
+                <th>School Year</th>
+                <th>Event Name</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>`
+  );
+  let ref;
+  if (sortEvent.value == "From") {
+    ref = query(collection(db, "Events"), orderBy("From", "desc"));
+  } else if (sortEvent.value == "EventName") {
+    ref = query(collection(db, "Events"), orderBy("EventName"));
+  } else {
+    ref = query(collection(db, "Events"), orderBy("Date", "desc"));
+  }
+
+  const querySnap = await getDocs(ref);
+  querySnap.forEach((doc) => {
+    renderEvents(doc.data(), doc.id);
+  });
+}
+//#endregion
+
+//#region - Get all Event Data
+async function GetAllData() {
+  const ref = query(collection(db, "Events"), orderBy("Date", "desc"));
+  const querySnap = await getDocs(ref);
+  querySnap.forEach((doc) => {
+    renderEvents(doc.data(), doc.id);
+  });
+}
+//#endregion
+
+GetAllData();
+let idHolder;
+
+//#region - Render Events
+function renderEvents(content, ids) {
+  let cHold = ``,
+    bHold = ``;
+  if (content.Status == "On-going") {
+    cHold = `class="onGoing"`;
+  } else if (content.Status == "Finished") {
+    cHold = `class="done"`;
+  } else {
+    cHold = `class="upcoming"`;
+  }
+
+  if (content.Visibility == "Hidden") {
+    bHold = `class="done"`;
+  } else {
+    bHold = `class="show"`;
+  }
+
+  const tr = `<tr data-id="${ids}" class="tr">
+               <td>S.Y. ${content.From}-${content.To}</td>
+                <td>${content.EventName}</td>
+                <td>${content.Date}</td>
+                <td ${cHold}>${content.Status}</td>
+                <td>
+                  <button class="btn btn-edit">Edit</button>
+                  <button class="btn btn-delete">Delete</button>
+                  <button class="btn btn-view">View</button>
+                </td>
+              </tr>`;
+
+  if (content.Email == HoldAdminID) {
+    tableEvents.insertAdjacentHTML("beforeend", tr);
+
+    // Click Show Update Modal
+    const btnShowUpdate = document.querySelector(
+      `[data-id='${ids}'] .btn-edit`
+    );
+    btnShowUpdate.addEventListener("click", () => {
+      editEventWrapper.style.display = "block";
+      syStart02.value = content.From;
+      syEnd02.value = content.To;
+      eventName02.value = content.EventName;
+      eventDate02.value = content.Date;
+
+      idHolder = ids;
+    });
+
+    //Click Show Delete Modal
+    const btnShowDel = document.querySelector(`[data-id='${ids}'] .btn-delete`);
+    btnShowDel.addEventListener("click", () => {
+      deleteEventWrapper.style.display = "block";
+      txtSY.textContent = "S.Y. " + content.From + "-" + content.To;
+      txtEN.textContent = content.EventName;
+      txtD.textContent = content.Date;
+      txtS.textContent = content.Status;
+      txtV.textContent = content.Visibility;
+
+      idHolder = ids;
+    });
+
+    //Click View Event Games
+    const btnViewEventGames = document.querySelector(
+      `[data-id='${ids}'] .btn-view`
+    );
+    btnViewEventGames.addEventListener("click", () => {
+      localStorage.setItem("subPassEventID", ids);
+      localStorage.setItem(
+        "subEventCode",
+        content.EventName +
+          " - (" +
+          "S.Y. " +
+          content.From +
+          "-" +
+          content.To +
+          ")"
+      );
+      localStorage.setItem("subEventName", content.EventName);
+      localStorage.setItem("subEventSYFrom", content.From);
+      localStorage.setItem("subEventSYTo", content.To);
+      window.location.href = "./subAdminGame.html";
+      return false;
+    });
+  }
+}
+//#endregion
+
+//#region - Update Event Method
+function UpdateEvent() {
+  const eventDate02A = new Date(eventDate02.value);
+  let txtInfo = "*Please fill";
+
+  if (syStart02.value == "") {
+    txtInfo += " From,";
+  }
+
+  if (syEnd02.value == "") {
+    txtInfo += " To,";
+  }
+
+  if (eventName02.value == "") {
+    txtInfo += " Event Name,";
+  }
+
+  if (eventDate02.value == "") {
+    txtInfo += " Date";
+  }
+
+  if (
+    syStart02.value == "" ||
+    syEnd02.value == "" ||
+    eventName02.value == "" ||
+    eventDate02.value == ""
+  ) {
+    swal("Oww!", txtInfo, "error");
+    // info02.textContent = txtInfo;
+    // info02.style.color = "red";
+  }
+
+  if (
+    syStart02.value != "" &&
+    syEnd02.value != "" &&
+    eventName02.value != "" &&
+    eventDate02.value != ""
+  ) {
+    if (
+      syStart02.value >= 2000 &&
+      syStart02.value <= 2999 &&
+      syEnd02.value >= 2000 &&
+      syEnd02.value <= 2999
+    ) {
+      if (syStart02.value < syEnd02.value) {
+        if (syEnd02.value - syStart02.value == 1) {
+          if (
+            syStart02.value == eventDate02A.getFullYear() ||
+            syEnd02.value == eventDate02A.getFullYear()
+          ) {
+            updateDoc(doc(db, "Events", idHolder), {
+              From: syStart02.value,
+              To: syEnd02.value,
+              EventName: eventName02.value,
+              Date: eventDate02.value,
+            })
+              .then(() => {
+                // alert("Data Updated");
+                swal("Wow!", "Event Updated Successfully!", "success").then(
+                  () => {
+                    editEventWrapper.style.display = "none";
+                    info02.textContent =
+                      "Please fill all the information needed";
+                    info02.style.color = "";
+                    window.location.reload();
+                  }
+                );
+              })
+              .catch((error) => {
+                swal(
+                  "Oww!",
+                  "*Unsuccessuful operation, error:" + error,
+                  "error"
+                );
+                // alert("Unsuccessuful operation, error:" + error);
+              });
+          } else {
+            swal("Oww!", "*Date Year must match either From or To", "error");
+            // info02.textContent = "*Date Year must match either From or To";
+            // info02.style.color = "red";
+          }
+        } else {
+          swal("Oww!", "*School year Difference must be 1", "error");
+          // info02.textContent = "*School year Difference must be 1";
+          // info02.style.color = "red";
+        }
+      } else {
+        swal("Oww!", "*School year From must be less than To", "error");
+        // info02.textContent = "*School year From must be less than To";
+        // info02.style.color = "red";
+      }
+    } else {
+      swal(
+        "Oww!",
+        "*School year must be less than 3000 and grater than 1999",
+        "error"
+      );
+      // info02.textContent =
+      //   "*School year must be less than 3000 and grater than 1999";
+      // info02.style.color = "red";
+    }
+  }
+}
+//#endregion
+
+//#region - Delete Event Method
+async function DeleteEvent() {
+  if (checkDeleteEvent.checked == false) {
+    swal("Oww!", "*Unable to Delete Event, Checkbox not Checked", "error");
+    // info03.textContent = "*Unable to Delete Event, Checkbox not Checked";
+    // info03.style.color = "red";
+  } else {
+    const gamesRef = query(collection(db, "Events", idHolder, "EventGames"));
+    const gamesQuery = await getDocs(gamesRef);
+
+    gamesQuery.forEach((gamesDoc) => {
+      DeleteNestedValuesInGames(gamesDoc);
+    });
+    DeleteEventAndGames();
+  }
+}
+//#endregion
+
+//#region - Delete Nested Values inside Games
+async function DeleteNestedValuesInGames(gamesDoc) {
+  const batch = writeBatch(db);
+
+  // DELETE - On-Game Doc
+  const onGameRef = doc(
+    db,
+    "Events",
+    idHolder,
+    "EventGames",
+    gamesDoc.id,
+    "OnGame",
+    "Matches"
+  );
+  batch.delete(onGameRef);
+
+  // DELETE - Team Collection
+  const getAllTeamsRef = query(
+    collection(db, "Events", idHolder, "EventGames", gamesDoc.id, "TeamDetails")
+  );
+  const querySnap01 = await getDocs(getAllTeamsRef);
+  querySnap01.forEach((doc01) => {
+    let teamRef = doc(
+      db,
+      "Events",
+      idHolder,
+      "EventGames",
+      gamesDoc.id,
+      "TeamDetails",
+      doc01.id
+    );
+
+    batch.delete(teamRef);
+  });
+
+  // DELETE - Round Collection
+  const getAllRoundRef = query(
+    collection(db, "Events", idHolder, "EventGames", gamesDoc.id, "Rounds")
+  );
+  const querySnap02 = await getDocs(getAllRoundRef);
+  querySnap02.forEach((doc02) => {
+    let roundRef = doc(
+      db,
+      "Events",
+      idHolder,
+      "EventGames",
+      gamesDoc.id,
+      "Rounds",
+      doc02.id
+    );
+
+    batch.delete(roundRef);
+  });
+
+  // DELETE - Score History Collection
+  const getAllHistory = query(
+    collection(
+      db,
+      "Events",
+      idHolder,
+      "EventGames",
+      gamesDoc.id,
+      "ScoreHistory"
+    )
+  );
+  const querySnap03 = await getDocs(getAllHistory);
+  querySnap03.forEach((doc03) => {
+    let historyRef = doc(
+      db,
+      "Events",
+      idHolder,
+      "EventGames",
+      gamesDoc.id,
+      "ScoreHistory",
+      doc03.id
+    );
+
+    batch.delete(historyRef);
+  });
+
+  await batch.commit();
+}
+//#endregion
+
+//#region - Delete Event and Games
+async function DeleteEventAndGames() {
+  const gamesRef = query(collection(db, "Events", idHolder, "EventGames"));
+  const gamesQuery = await getDocs(gamesRef);
+  const batch01 = writeBatch(db);
+
+  // DELETE - Event Games
+  gamesQuery.forEach((gamesDoc) => {
+    const eGames = doc(db, "Events", idHolder, "EventGames", gamesDoc.id);
+    batch01.delete(eGames);
+  });
+
+  // DELETE - Event
+  const eventRef = doc(db, "Events", idHolder);
+  batch01.delete(eventRef);
+
+  await batch01
+    .commit()
+    .then(() => {
+      // alert("Data Deleted Successfuly");
+      swal("Yay!", "Event has been Deleted!", "info").then(() => {
+        deleteEventWrapper.style.display = "none";
+        checkDeleteEvent.checked = false;
+        info03.textContent = "This informations will be deleted.";
+        info03.style.color = "";
+        window.location.reload();
+      });
+    })
+    .catch((error) => {
+      swal("Oww!", "*Unsuccessuful operation, error:" + error, "error");
+      // alert("Unsuccessuful operation, error:" + error);
+    });
+}
+//#endregion
+
+//#region - Search from table
+function SearchFromTable() {
+  // Declare search string
+  var filter = searchEvent.value.toUpperCase();
+
+  // Loop through first tbody's rows
+  for (var rowI = 0; rowI < trs.length; rowI++) {
+    // define the row's cells
+    var tds = trs[rowI].getElementsByTagName("td");
+
+    // hide the row
+    trs[rowI].style.display = "none";
+
+    // loop through row cells
+    for (var cellI = 0; cellI < tds.length; cellI++) {
+      // if there's a match
+      if (tds[cellI].innerHTML.toUpperCase().indexOf(filter) > -1) {
+        // show the row
+        trs[rowI].style.display = "";
+
+        // skip to the next row
+        continue;
+      }
+    }
+  }
+}
+//#endregion
+
+//#region - Excel Report
+function ExcelReport() {
+  let tab_text = "<table border='2px'><tr bgcolor='#87AFC6'>";
+  let sa;
+  let j = 0;
+  let tab = tableEvents;
+
+  for (j = 0; j < tab.rows.length; j++) {
+    tab_text = tab_text + tab.rows[j].innerHTML + "</tr>";
+  }
+
+  tab_text = tab_text + "</table>";
+  tab_text = tab_text.replace(/<a[^>]*>|<\/a>/g, "");
+  tab_text = tab_text.replace(/<img[^>]*>/gi, "");
+  tab_text = tab_text.replace(/<input[^>]*>|<\/input>/gi, "");
+  tab_text = tab_text.replace(/<button[^>]*>|<\/button>/gi, "");
+
+  var ua = window.navigator.userAgent;
+  var msie = ua.indexOf("MSIE ");
+
+  if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./)) {
+    txtArea1.document.open("txt/html", "replace");
+    txtArea1.document.write(tab_text);
+    txtArea1.document.close();
+    txtArea1.focus();
+    sa = txtArea1.document.execCommand("SaveAs", true);
+  } else
+    sa = window.open(
+      "data:application/vnd.ms-excel," + encodeURIComponent(tab_text)
+    );
+
+  return sa;
+}
+//#endregion
+
+//#region - Update Admin Details
+async function UpdateAdminDetails() {
+  let txtInfo = "*Please fill";
+  if (fName.value == "") {
+    txtInfo += " First Name";
+  }
+
+  if (lName.value == "") {
+    txtInfo += ", Last Name";
+  }
+
+  if (userName.value == "") {
+    txtInfo += ", Username";
+  }
+
+  if (fName.value == "" || lName.value == "" || userName.value == "") {
+    swal("Oww!", txtInfo, "error");
+    // info04.textContent = txtInfo;
+    // info04.color = "red";
+  }
+
+  if (fName.value != "" && lName.value != "" && userName.value != "") {
+    let ref = doc(db, "SubAdminAccounts", HoldAdminID);
+    await updateDoc(ref, {
+      FirstName: fName.value,
+      LastName: lName.value,
+      Username: userName.value,
+    })
+      .then(() => {
+        // alert("Data Updated successfully");
+        swal("Wow!", "Admin Details Updated Successfully!", "success").then(
+          () => {
+            info04.textContent = "Please fill all the information needed";
+            info04.style.color = "";
+            updateWrapper.style.display = "none";
+          }
+        );
+      })
+      .catch((error) => {
+        swal("Oww!", "*Unsuccessuful operation, error:" + error, "error");
+        // alert("Unsuccessuful operation, error:" + error);
+      });
+  }
+}
+//#endregion
+
+//#region - Update Admin Password
+async function UpdateAdminPassword() {
+  let txtInfo = "*Please fill";
+
+  if (oldPass.value == "") {
+    txtInfo += " Current Password";
+  }
+
+  if (newPass01.value == "") {
+    txtInfo += ", New Password";
+  }
+
+  if (newPass02.value == "") {
+    txtInfo += ", Confirm New Password";
+  }
+
+  if (oldPass.value == "" || newPass01.value == "" || newPass02.value == "") {
+    swal("Oww!", txtInfo, "error");
+    // info05.textContent = txtInfo;
+    // info05.style.color = "red";
+  }
+
+  if (oldPass.value != "" && newPass01.value != "" && newPass02.value != "") {
+    if (oldPass.value == sPass) {
+      if (newPass01.value == newPass02.value) {
+        let ref = doc(db, "SubAdminAccounts", HoldAdminID);
+        await updateDoc(ref, {
+          Password: newPass01.value,
+        })
+          .then(() => {
+            // alert("Data Updated successfully");
+            swal(
+              "Wow!",
+              "Admin Password Updated Successfully!",
+              "success"
+            ).then(() => {
+              info05.textContent =
+                " To update the password you need to input Current Password";
+              info05.style.color = "";
+              oldPass.value = "";
+              newPass01.value = "";
+              newPass02.value = "";
+              passWrapper.style.display = "none";
+            });
+          })
+          .catch((error) => {
+            // alert("Unsuccessuful operation, error:" + error);
+            swal("Oww!", "*Unsuccessuful operation, error:" + error, "error");
+          });
+      } else {
+        swal("Oww!", "*New Password Don't Match", "error");
+        // info05.textContent = "*New Password Don't Match";
+        // info05.style.color = "red";
+      }
+    } else {
+      swal("Oww!", "*Invalid Password", "error");
+      // info05.textContent = "*Invalid Password";
+      // info05.style.color = "red";
+    }
+  }
+}
+//#endregion
+
+//#region - Delete Admin Account
+async function DeleteAccount() {
+  if (passDel.value == "") {
+    swal("Oww!", "*Please enter password", "error");
+    // info06.textContent = "*Please enter password";
+    // info06.style.color = "red";
+  }
+
+  if (passDel.value != "") {
+    if (passDel.value == sPass) {
+      if (checkDel.checked == true) {
+        let ref = doc(db, "SubAdminAccounts", HoldAdminID);
+        await deleteDoc(ref)
+          .then(() => {
+            // alert("Data Deleted successfully");
+            swal("Yay!", "Admin Account has been Deleted!", "info").then(() => {
+              deleteWrapper.style.display = "none";
+              info06.style.color = "";
+              info06.textContent =
+                "This will erase all information about the admin.";
+              passDel.value = "";
+              checkDel.checked = false;
+              window.open("./index.html", "_self");
+            });
+          })
+          .catch((error) => {
+            swal("Oww!", "*Unsuccessuful operation, error:" + error, "error");
+            // alert("Unsuccessuful operation, error:" + error);
+          });
+      } else {
+        swal(
+          "Oww!",
+          "*Unable to Delete Account, Checkbox not Checked",
+          "error"
+        );
+        // info06.textContent = "Unable to Delete Account, Checkbox not Checked";
+        // info06.style.color = "red";
+      }
+    } else {
+      swal("Oww!", "*Invalid Password", "error");
+      // info06.textContent = "*Invalid Password";
+      // info06.style.color = "red";
+    }
+  }
+}
+//#endregion
+
+//------------------------------BUTTON EVENTS--------------------------------------------------------------------------
+btnCreateEvent.addEventListener("click", CreateEvent);
+btnEditEvent.addEventListener("click", UpdateEvent);
+btnDeleteEvent.addEventListener("click", DeleteEvent);
+sortEvent.addEventListener("change", SortEvent);
+searchEvent.addEventListener("keyup", SearchFromTable);
+btnExport.addEventListener("click", ExcelReport);
+btnUpdateDesc.addEventListener("click", UpdateAdminDetails);
+btnUpdatePass.addEventListener("click", UpdateAdminPassword);
+btnDeleteAccount.addEventListener("click", DeleteAccount);

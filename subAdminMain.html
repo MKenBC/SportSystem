@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./subAdminMainStyles/subAdminMainStyles.css" />
+    <title>PUP SportsSystem | Event Admin</title>
+    <script type="text/javascript">
+      function preventBack() {
+        window.history.forward();
+      }
+      setTimeout("preventBack()", 0);
+      window.onunload = function () {
+        null;
+      };
+    </script>
+  </head>
+  <body>
+    <div id="bg">
+      <header>
+        <div class="head">
+          <h1 class="home-title">Sports<span>System</span></h1>
+
+          <div class="head-container">
+            <ul>
+              <li id="dropAccount">
+                <a class="aAccount" href="#">Account</a>
+                <div class="drop-container">
+                  <ul>
+                    <li>
+                      <a href="#" id="btnShowUpdateDetails">Update Details</a>
+                    </li>
+                    <li id="dropUpdate">
+                      <a href="#" id="btnShowUpdatePassword">Update Password</a>
+                    </li>
+                    <li>
+                      <a id="btnShowDeleteAccount" href="#">Delete Account</a>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li><a id="btnBack" href="./index.html">Log Out</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <main>
+        <!-- Table -->
+        <div class="container">
+          <div class="table-wrapper">
+            <table id="tableEvents" class="table">
+              <div class="tHeader">
+                <div></div>
+                <h3 id="tableHeader">Manage Events</h3>
+                <button id="btnExport">Export</button>
+              </div>
+              <div class="underHead">
+                <button id="btnShowCreateEvent" class="btn">Add Event +</button>
+
+                <div>
+                  <input id="searchEvent" type="text" placeholder="Search..." />
+                  <select id="sortEvent">
+                    <option value="From">School Year</option>
+                    <option value="EventName">Event Name</option>
+                    <option value="Date" selected>Date</option>
+                  </select>
+                </div>
+              </div>
+
+              <tr>
+                <th>School Year</th>
+                <th>Event Name</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <iframe id="txtArea1" style="display: none"></iframe>
+
+        <!-- Modal Create Event -->
+        <div class="modal-wrapper" id="createEventWrapper">
+          <div class="modal-container">
+            <form action="">
+              <h3>Create Event<span>.</span></h3>
+              <p id="info01">Please fill all the information needed</p>
+              <div class="syContainer">
+                <p class="sy">S.Y.</p>
+                <input
+                  class="syStart"
+                  id="syStart01"
+                  type="number"
+                  min="2000"
+                  max="2999"
+                  step="1"
+                  placeholder="From"
+                  autocomplete="off"
+                  required
+                />
+                <p class="mid">-</p>
+                <input
+                  class="syEnd"
+                  id="syEnd01"
+                  type="number"
+                  min="2000"
+                  max="2999"
+                  step="1"
+                  placeholder="To"
+                  autocomplete="off"
+                  required
+                />
+              </div>
+
+              <input
+                id="eventName01"
+                type="text"
+                placeholder="Event Name"
+                autocomplete="off"
+                required
+              />
+
+              <input type="date" name="eventDate01" id="eventDate01" />
+            </form>
+
+            <div class="btn-container">
+              <button id="btnCreateEvent">Save</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Edit Event -->
+        <div class="modal-wrapper" id="editEventWrapper">
+          <div class="modal-container">
+            <form action="">
+              <h3>Update Event<span>.</span></h3>
+              <p id="info02">Please fill all the information needed</p>
+
+              <div class="syContainer">
+                <p class="sy">S.Y.</p>
+                <input
+                  class="syStart"
+                  id="syStart02"
+                  type="number"
+                  min="2000"
+                  max="2999"
+                  step="1"
+                  placeholder="From"
+                  autocomplete="off"
+                  required
+                />
+                <p class="mid">-</p>
+                <input
+                  class="syEnd"
+                  id="syEnd02"
+                  type="number"
+                  min="2000"
+                  max="2999"
+                  step="1"
+                  placeholder="To"
+                  autocomplete="off"
+                  required
+                />
+              </div>
+
+              <input
+                id="eventName02"
+                type="text"
+                placeholder="Event Name"
+                autocomplete="off"
+                required
+              />
+
+              <input type="date" name="eventDate01" id="eventDate02" />
+            </form>
+
+            <div class="btn-container">
+              <button id="btnEditEvent">Update</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Delete Event -->
+        <div class="modal-wrapper" id="deleteEventWrapper">
+          <div class="modal-container">
+            <div class="dataContents">
+              <h3>Delete Event<span>.</span></h3>
+              <p class="info" id="info03">
+                Deleting this event will also delete all the games listed inside
+                this.
+              </p>
+            </div>
+            <div class="txtsCont">
+              <div class="infoContainer">
+                <p class="label">School Year:</p>
+                <p id="txtSY"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">Event Name:</p>
+                <p id="txtEN"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">Date:</p>
+                <p id="txtD"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">Status:</p>
+                <p id="txtS"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">Visibility:</p>
+                <p id="txtV"></p>
+              </div>
+            </div>
+            <div class="check-container">
+              <input id="checkDeleteEvent" type="checkbox" />
+              <label for="checkDeleteEvent"
+                >Permanently Delete Information</label
+              >
+            </div>
+
+            <div class="btn-container">
+              <button id="btnDeleteEvent">Delete</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Update Details -->
+        <div class="modal-wrapper" id="updateWrapper">
+          <div class="modal-container">
+            <form action="">
+              <h3>Update Admin Informations<span>.</span></h3>
+              <p id="info04">Please Fill all the information needed</p>
+              <input
+                id="fName"
+                type="text"
+                placeholder="First name"
+                autocomplete="off"
+                required
+              />
+              <input
+                id="lName"
+                type="text"
+                placeholder="Last name"
+                autocomplete="off"
+                required
+              />
+              <input
+                id="userName"
+                type="text"
+                placeholder="Username"
+                autocomplete="off"
+                required
+              />
+            </form>
+
+            <div class="btn-container">
+              <button id="btnUpdateDesc">Update</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Update Password -->
+        <div class="modal-wrapper" id="passWrapper">
+          <div class="modal-container">
+            <form action="">
+              <h3>Update Password<span>.</span></h3>
+              <p id="info05">
+                To update the password you need to input Current Password
+              </p>
+              <input
+                id="oldPass"
+                type="password"
+                placeholder="Current Password"
+                autocomplete="off"
+                required
+              />
+              <input
+                id="newPass01"
+                type="password"
+                placeholder="Input New Password"
+                autocomplete="off"
+                required
+              />
+              <input
+                id="newPass02"
+                type="password"
+                placeholder="Confirm New Password"
+                autocomplete="off"
+                required
+              />
+            </form>
+
+            <div class="btn-container">
+              <button id="btnUpdatePass">Update</button>
+            </div>
+          </div>
+        </div>
+
+        
+        <!-- Modal Delete Account -->
+        <div class="modal-wrapper" id="deleteWrapper">
+          <div class="modal-container">
+            <form action="">
+              <h3>Delete Account<span>.</span></h3>
+              <p id="info06">
+                This will erase all information about the admin.
+              </p>
+              <input
+                id="passDel"
+                type="password"
+                placeholder="Password"
+                autocomplete="off"
+                required
+              />
+
+              <div class="check-container">
+                <input id="checkDel" type="checkbox" />
+                <label for="checkDel">Permanently Delete Account</label>
+              </div>
+            </form>
+
+            <div class="btn-container">
+              <button id="btnDeleteAccount">Delete</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="module" src="./subAdminMain.js"></script>
+  </body>
+</html>

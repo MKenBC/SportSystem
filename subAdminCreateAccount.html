@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="./subAdminCreateAccountStyles/subAdminCreateAccountStyles.css"
+    />
+    <title>PUP SportsSystem | Create Account</title>
+    <script type="text/javascript">
+      function preventBack() {
+        window.history.forward();
+      }
+      setTimeout("preventBack()", 0);
+      window.onunload = function () {
+        null;
+      };
+    </script>
+  </head>
+  <body>
+    <div id="bg">
+      <header>
+        <div class="head">
+          <a class="home-title" href="./index.html">
+            <h1>Sports<span>System</span></h1></a
+          >
+        </div>
+        <!-- Modal Submit Email -->
+        <div class="modal-wrapper" id="submitCodeWrapper">
+          <div class="modal-container">
+            <form action="">
+              <h3>Verify Account<span>.</span></h3>
+              <p id="info01">Please fill the information needed.</p>
+
+              <input
+                id="verificationCode"
+                type="number"
+                placeholder="Verification Code"
+                autocomplete="off"
+                required
+              />
+            </form>
+
+            <div class="btn-container">
+              <button id="btnSubmitCode">Submit</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="main">
+          <h3>Are you a event admin?</h3>
+          <h1 class="title">Create new account<span>.</span></h1>
+          <p id="info">Please fill all the information needed</p>
+
+          <form action="">
+            <input
+              id="fName"
+              type="text"
+              placeholder="First name"
+              autocomplete="off"
+              required
+            />
+            <input
+              id="lName"
+              type="text"
+              placeholder="Last name"
+              autocomplete="off"
+              required
+            />
+            <input
+              id="userName"
+              type="text"
+              placeholder="Username"
+              autocomplete="off"
+              required
+            />
+            <input
+              id="email"
+              type="email"
+              placeholder="Email"
+              autocomplete="off"
+              required
+            />
+            <input
+              id="pass"
+              type="password"
+              placeholder="Password"
+              autocomplete="off"
+              required
+            />
+            <input
+              id="pass1"
+              type="password"
+              placeholder="Confirm Password"
+              required
+            />
+          </form>
+
+          <div class="btn-container">
+            <a href="./index.html" class="btn-home">Go Back</a>
+            <a href="#" id="btnSubmitCreateAccount" class="btn-submit"
+              >Submit</a
+            >
+          </div>
+        </div>
+
+        <div class="side"></div>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="module" src="./subAdminCreateAccount.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+  </body>
+</html>

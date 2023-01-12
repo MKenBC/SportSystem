@@ -1,0 +1,638 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #666666;
+  text-decoration: none;
+}
+
+#bg {
+  height: 100vh;
+  background: #f2f2f2;
+}
+
+label, button {
+  cursor: pointer;
+}
+
+header .head {
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 150px;
+}
+
+header .head .home-title {
+  font-size: 30px;
+}
+
+header .head .home-title span {
+  color: #dc3545;
+}
+
+header .head #btnBack {
+  font-size: 15px;
+  font-weight: bolder;
+  padding: 7px 30px;
+  background: #d9a420;
+  color: white;
+  border: 3px solid #d9a420;
+  border-radius: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+header .head #btnBack:hover {
+  color: #999999;
+  background: white;
+  border-color: #999999;
+}
+
+main .mainContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1.1fr;
+      grid-template-columns: 2fr 1.1fr;
+  padding: 50px 150px;
+  background: #f2f2f2;
+}
+
+main .mainContainer .container {
+  width: 100%;
+  margin: 2rem auto;
+  padding-bottom: 2rem;
+}
+
+main .mainContainer .container .table-wrapper {
+  text-align: start;
+}
+
+main .mainContainer .container .table-wrapper .tHeader01 {
+  width: 100%;
+  background: maroon;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+main .mainContainer .container .table-wrapper .tHeader01 h3 {
+  color: white;
+}
+
+main .mainContainer .container .table-wrapper .underHead {
+  text-align: end;
+}
+
+main .mainContainer .container .table-wrapper .underHead #sortTeam {
+  margin: 5px;
+  width: 8rem;
+  height: 2rem;
+  color: #999999;
+  border-color: #999999;
+  text-indent: 0.5rem;
+}
+
+main .mainContainer .container .table-wrapper .underHead #sortTeam:focus {
+  outline: 1px solid #999999;
+}
+
+main .mainContainer .container .table-wrapper .tHeader02 {
+  width: 100%;
+  background: maroon;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+main .mainContainer .container .table-wrapper .tHeader02 h3 {
+  color: white;
+}
+
+main .mainContainer .container .table-wrapper .table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+main .mainContainer .container .table-wrapper .table th,
+main .mainContainer .container .table-wrapper .table td {
+  text-align: left;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem;
+}
+
+main .mainContainer .container .table-wrapper .table .onGoing {
+  font-weight: 600;
+  color: green;
+}
+
+main .mainContainer .container .table-wrapper .table .done {
+  font-weight: 600;
+  color: red;
+}
+
+main .mainContainer .container .table-wrapper .table .upcoming {
+  font-weight: 600;
+  color: #666666;
+}
+
+main .mainContainer .container .table-wrapper .table .tr:hover {
+  background: #f5f5f5;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+  -webkit-box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+main .mainContainer .container .table-wrapper .table th {
+  background: white;
+  padding: 1rem auto;
+}
+
+main .mainContainer #tournametBracketContainer .tournamentHeader {
+  margin-bottom: 20px;
+}
+
+main .mainContainer #tournametBracketContainer .tournamentHeader #gameName {
+  font-size: 25px;
+}
+
+main .mainContainer #tournametBracketContainer .tournamentHeader .scoreCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main .mainContainer #tournametBracketContainer .tournamentHeader .scoreCont #btnScoreBoard {
+  cursor: pointer;
+  margin-left: 30px;
+  color: white;
+  font-weight: 500;
+  background: #4caf50;
+  padding: 3px 20px;
+  border-radius: 5px;
+}
+
+main .mainContainer #tournametBracketContainer .tournamentHeader .scoreCont #btnScoreBoard:hover {
+  background: transparent;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  outline: 1px solid #4caf50;
+  color: #4caf50;
+}
+
+main .mainContainer #tournametBracketContainer .tournamentHeader .scoreCont #btnTeamRanking {
+  cursor: pointer;
+  margin-left: 30px;
+  color: white;
+  font-weight: 500;
+  background: maroon;
+  padding: 3px 20px;
+  border-radius: 5px;
+}
+
+main .mainContainer #tournametBracketContainer .tournamentHeader .scoreCont #btnTeamRanking:hover {
+  background: transparent;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  outline: 1px solid maroon;
+  color: maroon;
+}
+
+main .mainContainer #tournametBracketContainer .tournamentHeader .scoreCont #btnShowCreateHistory {
+  cursor: pointer;
+  margin-left: 30px;
+  color: white;
+  font-weight: 500;
+  background: #007bff;
+  padding: 3px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  display: none;
+}
+
+main .mainContainer #tournametBracketContainer .tournamentHeader .scoreCont #btnShowCreateHistory:hover {
+  background: transparent;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  outline: 1px solid #007bff;
+  color: #007bff;
+}
+
+main .mainContainer #tournametBracketContainer .roundContainer {
+  margin-top: 10px;
+}
+
+main .mainContainer #tournametBracketContainer .roundContainer .matchContain {
+  margin: 20px 20px;
+  display: inline-block;
+  border: none;
+}
+
+main .mainContainer #tournametBracketContainer .roundContainer .matchContain .matchContainer,
+main .mainContainer #tournametBracketContainer .roundContainer .matchContain .boxnum {
+  display: inline;
+  border: none;
+  vertical-align: middle;
+}
+
+main .mainContainer #tournametBracketContainer .roundContainer .matchContain .boxnum {
+  margin-right: 10px;
+  font-size: smaller;
+  font-weight: 500;
+}
+
+main .mainContainer #tournametBracketContainer .roundContainer .matchContain .matchContainer:hover {
+  background: #f5f5f5;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+main .mainContainer #tournametBracketContainer .roundContainer .matchContain .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  outline: 1px solid #494a4e;
+}
+
+main .mainContainer #tournametBracketContainer .roundContainer .matchContain .row label {
+  font-size: 11px;
+  padding: 3px 0;
+  cursor: pointer;
+}
+
+main .mainContainer #tournametBracketContainer .roundContainer .matchContain .row .lbl01 {
+  display: inline-block;
+  background: #787a80;
+  color: black;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+}
+
+main .mainContainer #tournametBracketContainer .roundContainer .matchContain .row .inputCont {
+  background: #58595e;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  cursor: pointer;
+}
+
+main .mainContainer #tournametBracketContainer .roundContainer .matchContain .row .lbl02 {
+  display: inline-block;
+  background: #58595e;
+  color: white;
+  width: 147px;
+  height: 24px;
+  text-indent: 5px;
+}
+
+main .mainContainer #tournametBracketContainer .roundContainer .matchContain .row .win {
+  background: #ff7f28;
+}
+
+.btn {
+  background: transparent;
+  width: 4rem;
+  height: 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.btn-edit {
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.btn-edit:hover {
+  background: #007bff;
+  color: white;
+}
+
+.btn-view {
+  color: #d9a420;
+  border: 1px solid #d9a420;
+}
+
+.btn-view:hover {
+  background: #d9a420;
+  color: white;
+}
+
+.numWins {
+  font-weight: bold;
+  color: green;
+}
+
+.numLoss {
+  font-weight: bold;
+  color: red;
+}
+
+.modal-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.26);
+  display: none;
+}
+
+.modal-wrapper .modal-container {
+  position: relative;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(242, 242, 242, 0.9))), url(./Images/Background.jpg) center/cover no-repeat;
+  background: linear-gradient(to right, rgba(242, 242, 242, 0.9)), url(./Images/Background.jpg) center/cover no-repeat;
+  text-align: center;
+  width: 400px;
+  margin: 5rem auto;
+  -webkit-box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  border-radius: 20px;
+}
+
+.modal-wrapper .modal-container form {
+  display: -ms-grid;
+  display: grid;
+  padding: 0px 40px;
+}
+
+.modal-wrapper .modal-container form h3 {
+  margin: 10px 0 0 0;
+  padding: 10px 0 0 0;
+  font-size: 23px;
+}
+
+.modal-wrapper .modal-container form h3 span {
+  font-size: 40px;
+  color: #dc3545;
+}
+
+.modal-wrapper .modal-container form p {
+  padding: 10px 25px;
+}
+
+.modal-wrapper .modal-container form input {
+  margin-top: 13px;
+  padding: 10px 16px;
+  border-radius: 15px;
+  border-color: transparent;
+  text-indent: 0.5rem;
+  outline: none;
+}
+
+.modal-wrapper .modal-container form input:focus {
+  outline: 2px solid #999999;
+}
+
+.modal-wrapper .modal-container form textarea {
+  margin-top: 13px;
+  padding: 10px 16px;
+  border-radius: 15px;
+  border-color: transparent;
+  outline: none;
+  resize: none;
+}
+
+.modal-wrapper .modal-container form textarea:focus {
+  outline: 2px solid #999999;
+}
+
+.modal-wrapper .modal-container form .txtsCont {
+  margin-top: 20px;
+}
+
+.modal-wrapper .modal-container form .txtsCont .infoContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.modal-wrapper .modal-container form .txtsCont .infoContainer .label {
+  font-weight: bold;
+}
+
+.modal-wrapper .modal-container .btn-container {
+  margin: 30px 40px 0 40px;
+}
+
+.modal-wrapper .modal-container .btn-container button {
+  text-align: center;
+  padding: 7px 20px;
+  margin-bottom: 30px;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  width: 15rem;
+}
+
+.modal-wrapper .modal-container .btn-container #btnUpdateTeamDesc,
+.modal-wrapper .modal-container .btn-container #btnUpdateRoundDesc,
+.modal-wrapper .modal-container .btn-container #btnGetScores {
+  border: 3px solid #999999;
+  color: #999999;
+  cursor: pointer;
+}
+
+.modal-wrapper .modal-container .btn-container #btnUpdateTeamDesc:hover,
+.modal-wrapper .modal-container .btn-container #btnUpdateRoundDesc:hover,
+.modal-wrapper .modal-container .btn-container #btnGetScores:hover {
+  border-color: #d9a420;
+  background: #d9a420;
+  color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#showTeamDetails {
+  z-index: 1;
+}
+
+#showTeamDetails .label {
+  font-weight: bold;
+}
+
+#showTeamDetails #memberContainer {
+  margin-bottom: 30px;
+  background: white;
+  border-radius: 10px;
+  padding: 20px 0;
+}
+
+#showTeamDetails #memberContainer .member {
+  padding: 0;
+}
+
+#getTeamScoresWrapper .txtsCont {
+  margin-top: 0;
+}
+
+#getTeamScoresWrapper .txtsCont p {
+  font-weight: 500;
+  text-align: center;
+}
+
+#getTeamScoresWrapper .txtsCont #txtWinTeamName {
+  color: green;
+}
+
+#getTeamScoresWrapper .txtsCont #txtLossTeamName {
+  color: red;
+}
+
+#getTeamScoresWrapper .txtsCont h4 {
+  margin-top: 20px;
+}
+
+#getTeamScoresWrapper .txtsCont input {
+  width: 100%;
+}
+
+#createHistoryWrapper .dataContents {
+  display: -ms-grid;
+  display: grid;
+  padding: 0px 40px;
+}
+
+#createHistoryWrapper .dataContents h3 {
+  margin: 10px 0 0 0;
+  padding: 10px 0 0 0;
+  font-size: 23px;
+}
+
+#createHistoryWrapper .dataContents h3 span {
+  font-size: 40px;
+  color: #dc3545;
+}
+
+#createHistoryWrapper .dataContents .info {
+  padding: 10px 25px;
+}
+
+#createHistoryWrapper .txtsCont {
+  margin: 20px 60px;
+}
+
+#createHistoryWrapper .txtsCont .infoContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 8px 0px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+#createHistoryWrapper .txtsCont .infoContainer .label {
+  font-weight: bold;
+}
+
+#createHistoryWrapper .check-container {
+  margin-top: 13px;
+}
+
+#createHistoryWrapper .check-container label {
+  cursor: pointer;
+}
+
+#createHistoryWrapper #btnAddHist {
+  border: 3px solid #999999;
+  color: #999999;
+}
+
+#createHistoryWrapper #btnAddHist:hover {
+  border-color: #dc3545;
+  background: #dc3545;
+  color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#createHistoryWrapper #txtCP {
+  cursor: pointer;
+  margin-left: 30px;
+  color: white;
+  font-weight: 500;
+  background: maroon;
+  padding: 3px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#createHistoryWrapper #txtCP:hover {
+  background: transparent;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  outline: 1px solid maroon;
+  color: maroon;
+}
+
+#createHistoryWrapper #txt1R {
+  cursor: pointer;
+  margin-left: 30px;
+  color: white;
+  font-weight: 500;
+  background: #007bff;
+  padding: 3px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#createHistoryWrapper #txt1R:hover {
+  background: transparent;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  outline: 1px solid #007bff;
+  color: #007bff;
+}
+
+#createHistoryWrapper #txt2R {
+  cursor: pointer;
+  margin-left: 30px;
+  color: white;
+  font-weight: 500;
+  background: #4caf50;
+  padding: 3px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+#createHistoryWrapper #txt2R:hover {
+  background: transparent;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  outline: 1px solid #4caf50;
+  color: #4caf50;
+}
+/*# sourceMappingURL=adminLeagueRRStyles.css.map */

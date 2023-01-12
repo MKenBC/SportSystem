@@ -1,0 +1,293 @@
+@import "./external";
+
+body {
+  height: 100%;
+  background: $bgColor;
+}
+
+button {
+  cursor: pointer;
+}
+
+header {
+  .head {
+    height: 10vh;
+    display: flex;
+    background: $pupWhite;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 150px;
+
+    .home-title {
+      font-size: 30px;
+
+      span {
+        color: $red;
+      }
+    }
+
+    #btnBack {
+      font-size: 15px;
+      font-weight: bolder;
+      padding: 7px 30px;
+      background: $orange;
+      color: white;
+      border: 3px solid $orange;
+      border-radius: 10px;
+      transition: 0.5s;
+
+      &:hover {
+        color: lighten($primaryColor, 20%);
+        background: $pupWhite;
+        border-color: lighten($primaryColor, 20%);
+      }
+    }
+  }
+}
+
+// Table Styles
+main {
+  .container {
+    max-width: 80vw;
+    margin: 2rem auto;
+    padding-bottom: 2rem;
+
+    .table-wrapper {
+      text-align: start;
+
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+
+        th,
+        td {
+          text-align: left;
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
+          padding: 0.5rem;
+        }
+
+        .winTeam {
+          color: green;
+          font-weight: 500;
+        }
+
+        .lossTeam {
+          color: red;
+          font-weight: 500;
+        }
+
+        .tr:hover {
+          background: #f5f5f5;
+          transform: scale(1.01);
+          box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2),
+            -1px -1px 8px rgba(0, 0, 0, 0.2);
+          transition: 0.15s;
+        }
+
+        th {
+          background: white;
+          padding: 1rem auto;
+        }
+      }
+    }
+  }
+}
+
+.tHeader {
+  width: 100%;
+  background: rgb(55, 55, 61);
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+
+  h3 {
+    color: rgb(79, 193, 255);
+  }
+  div {
+    width: 8rem;
+  }
+
+  #btnExport {
+    width: 8rem;
+    color: white;
+    font-weight: 500;
+    background: #4caf50;
+    padding: 3px 20px;
+    border-radius: 5px;
+    border: none;
+
+    &:hover {
+      transform: scale(1.07);
+      box-shadow: 2px 2px 12px rgba(255, 255, 255, 0.2),
+        -1px -1px 8px rgba(255, 255, 255, 0.2);
+      transition: 0.15s;
+    }
+  }
+}
+
+.underHead {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 2rem;
+  align-items: center;
+
+  .gcID {
+    font-weight: bold;
+  }
+
+  p {
+    display: inline-block;
+  }
+
+  #sortScoreBoard,
+  #searchScoreBoard {
+    width: 8rem;
+    height: 2rem;
+    color: lighten($primaryColor, 20%);
+    border-color: 1px solid lighten($primaryColor, 20%);
+    text-indent: 0.5rem;
+
+    &:focus {
+      outline: 1px solid lighten($primaryColor, 20%);
+    }
+  }
+
+  #searchScoreBoard {
+    margin-right: 20px;
+    width: 20rem;
+  }
+}
+
+//Table Row Button Styles
+.btn {
+  background: transparent;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.5s;
+}
+
+.btn-edit {
+  color: $blue;
+  border: 1px solid $blue;
+
+  &:hover {
+    background: $blue;
+    color: white;
+  }
+}
+
+//Modal Styles
+.modal-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.26);
+  display: none;
+
+  .modal-container {
+    position: relative;
+    background: linear-gradient(to right, rgba(242, 242, 242, 0.9)),
+      url(./Images/Background.jpg) center/cover no-repeat;
+    text-align: center;
+    width: 400px;
+    margin: 5rem auto;
+    -webkit-box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+    animation-duration: 0.5s;
+    border-radius: 20px;
+
+    form {
+      display: grid;
+      padding: 0px 40px;
+
+      h3 {
+        margin: 10px 0 0 0;
+        padding: 10px 0 0 0;
+        font-size: 23px;
+        span {
+          font-size: 40px;
+          color: $red;
+        }
+      }
+
+      p {
+        padding: 10px 25px;
+      }
+
+      input {
+        margin-top: 13px;
+        padding: 10px 16px;
+        border-radius: 15px;
+        border-color: transparent;
+        text-indent: 0.5rem;
+        outline: none;
+        width: 100%;
+
+        &:focus {
+          outline: 2px solid lighten($primaryColor, 20%);
+        }
+      }
+
+      .txtsCont {
+        .infoContainer {
+          display: flex;
+          justify-content: space-between;
+          border-top: 1px solid #ddd;
+          border-bottom: 1px solid #ddd;
+
+          .label {
+            font-weight: bold;
+          }
+          p {
+            font-weight: 500;
+            text-align: center;
+          }
+        }
+      }
+
+      #txtWinTeamName {
+        color: green;
+      }
+      #txtLossTeamName {
+        color: red;
+      }
+    }
+
+    .btn-container {
+      margin: 30px 40px 0 40px;
+
+      button {
+        text-align: center;
+        padding: 7px 20px;
+        margin-bottom: 30px;
+        font-size: 13px;
+        text-transform: uppercase;
+        font-weight: bold;
+        border-radius: 20px;
+        transition: 0.5s;
+        width: 15rem;
+      }
+
+      #btnUpdateScore {
+        border: 3px solid lighten($primaryColor, 20%);
+        color: lighten($primaryColor, 20%);
+        cursor: pointer;
+
+        &:hover {
+          border-color: $orange;
+          background: $orange;
+          color: $pupWhite;
+          transition: 0.5s;
+        }
+      }
+    }
+  }
+}

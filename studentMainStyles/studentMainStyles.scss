@@ -1,0 +1,110 @@
+@import "./external";
+
+#bg {
+  height: 100vh;
+  width: 100vw;
+  background: $bgColor;
+}
+
+header {
+  .head {
+    height: 10vh;
+    display: flex;
+    background: $pupWhite;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 150px;
+
+    .home-title {
+      h1 {
+        font-size: 30px;
+
+        span {
+          color: $red;
+        }
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    #btnBack {
+      font-size: 15px;
+      font-weight: bolder;
+      padding: 7px 30px;
+      background: $orange;
+      color: white;
+      border: 3px solid $orange;
+      border-radius: 10px;
+      transition: 0.5s;
+
+      &:hover {
+        color: lighten($primaryColor, 20%);
+        background: $pupWhite;
+        border-color: lighten($primaryColor, 20%);
+      }
+    }
+  }
+}
+
+main {
+  position: fixed;
+  width: 80%;
+  height: 80%;
+  left: 10%;
+  top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .contain {
+    .btn-container {
+      .btn {
+        padding: 90px;
+        margin: 40px;
+        border-radius: 30px;
+        font-size: 25px;
+        font-weight: bold;
+        color: $pupWhite;
+        background: chocolate;
+        -webkit-box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+        transition: all 0.5s;
+      }
+
+      #btnActiveGames {
+        background-color: $darkRed;
+        background-image: url(./Images/game.png);
+
+        background-size: 30%;
+        background-repeat: no-repeat;
+        background-position: center;
+        color: $pupWhite;
+        text-shadow: 0px 0px 5px #000000;
+
+        &:hover {
+          background-size: 38%;
+          color: $yellow;
+        }
+      }
+
+      #btnHistory {
+        background-color: $darkRed;
+        background-image: url(./Images/history.png);
+
+        background-size: 30%;
+        background-repeat: no-repeat;
+        background-position: center;
+        color: $pupWhite;
+        text-shadow: 0px 0px 5px #000000;
+
+        &:hover {
+          background-size: 38%;
+          color: $yellow;
+        }
+      }
+    }
+  }
+}

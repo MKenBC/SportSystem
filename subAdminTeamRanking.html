@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="./subAdminTeamRankingStyles/subAdminTeamRankingStyles.css"
+    />
+    <title>PUP SportsSystem | Ranking</title>
+    <script type="text/javascript">
+      function preventBack() {
+        window.history.forward();
+      }
+      setTimeout("preventBack()", 0);
+      window.onunload = function () {
+        null;
+      };
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="head">
+        <h1 class="home-title">Sports<span>System</span></h1>
+
+        <a id="btnBack" href="./subAdminLeagueRR.html">Back</a>
+      </div>
+    </header>
+    <main>
+      <!-- Table -->
+      <div class="container">
+        <div class="table-wrapper">
+          <table id="tableTeamRanking" class="table">
+            <div class="tHeader">
+              <div></div>
+              <h3 id="tHeader">Team Rankings</h3>
+              <button id="btnExport">Export</button>
+            </div>
+
+            <div class="underHead">
+              <div>
+                <p class="gcID">Event Name:</p>
+                <p id="eventName"></p>
+              </div>
+
+              <div>
+                <p class="gcID">Game Name:</p>
+                <p id="gameName"></p>
+              </div>
+            </div>
+
+            <tr>
+              <th>Ranking</th>
+              <th>Team Name</th>
+              <th>Total Wins</th>
+              <th>Total Score</th>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="module" src="./subAdminTeamRanking.js"></script>
+  </body>
+</html>

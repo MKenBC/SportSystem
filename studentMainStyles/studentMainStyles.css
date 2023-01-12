@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #666666;
+  text-decoration: none;
+}
+
+#bg {
+  height: 100vh;
+  width: 100vw;
+  background: #f2f2f2;
+}
+
+header .head {
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 150px;
+}
+
+header .head .home-title h1 {
+  font-size: 30px;
+}
+
+header .head .home-title h1 span {
+  color: #dc3545;
+}
+
+header .head .home-title:hover {
+  text-decoration: underline;
+}
+
+header .head #btnBack {
+  font-size: 15px;
+  font-weight: bolder;
+  padding: 7px 30px;
+  background: #d9a420;
+  color: white;
+  border: 3px solid #d9a420;
+  border-radius: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+header .head #btnBack:hover {
+  color: #999999;
+  background: white;
+  border-color: #999999;
+}
+
+main {
+  position: fixed;
+  width: 80%;
+  height: 80%;
+  left: 10%;
+  top: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .contain .btn-container .btn {
+  padding: 90px;
+  margin: 40px;
+  border-radius: 30px;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  background: chocolate;
+  -webkit-box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+main .contain .btn-container #btnActiveGames {
+  background-color: maroon;
+  background-image: url(./Images/game.png);
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  text-shadow: 0px 0px 5px #000000;
+}
+
+main .contain .btn-container #btnActiveGames:hover {
+  background-size: 38%;
+  color: #ffde00;
+}
+
+main .contain .btn-container #btnHistory {
+  background-color: maroon;
+  background-image: url(./Images/history.png);
+  background-size: 30%;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: white;
+  text-shadow: 0px 0px 5px #000000;
+}
+
+main .contain .btn-container #btnHistory:hover {
+  background-size: 38%;
+  color: #ffde00;
+}
+/*# sourceMappingURL=studentMainStyles.css.map */

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="./adminEventAccountsStyles/adminEventAccountsStyles.css"
+    />
+    <title>PUP SportsSystem - Admin | Accounts</title>
+    <script type="text/javascript">
+      function preventBack() {
+        window.history.forward();
+      }
+      setTimeout("preventBack()", 0);
+      window.onunload = function () {
+        null;
+      };
+    </script>
+  </head>
+  <body>
+    <div id="bg">
+      <header>
+        <div class="head">
+          <h1 class="home-title">Sports<span>System</span></h1>
+
+          <a id="btnAdminHome" href="./adminMain.html">Back</a>
+        </div>
+      </header>
+      <main>
+        <!-- Table -->
+        <div class="container">
+          <div class="table-wrapper">
+            <table id="tableAccounts" class="table">
+              <div class="tHeader">
+                <div></div>
+                <h3>Event Admin Accounts</h3>
+                <button id="btnExport">Export</button>
+              </div>
+              <div class="underHead">
+                <div></div>
+
+                <div>
+                  <input
+                    id="searchAccount"
+                    type="text"
+                    placeholder="Search..."
+                  />
+                  <select id="sortAccount">
+                    <option value="Email" selected>Email</option>
+                    <option value="FirstName">First Name</option>
+                    <option value="LastName">Last Name</option>
+                    <option value="Username">Username</option>
+                  </select>
+                </div>
+              </div>
+
+              <tr>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="module" src="./adminEventAccounts.js"></script>
+  </body>
+</html>

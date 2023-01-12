@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="./adminScoreBoardStyles/adminScoreBoardStyles.css"
+    />
+    <title>PUP SportsSystem - Admin | Score Board</title>
+    <script type="text/javascript">
+      function preventBack() {
+        window.history.forward();
+      }
+      setTimeout("preventBack()", 0);
+      window.onunload = function () {
+        null;
+      };
+    </script>
+  </head>
+  <body>
+    <div id="bg">
+      <header>
+        <div class="head">
+          <h1 class="home-title">Sports<span>System</span></h1>
+
+          <a id="btnBack" href="./adminLeagueRR.html">Back</a>
+        </div>
+      </header>
+      <main>
+        <!-- Table -->
+        <div class="container">
+          <div class="table-wrapper">
+            <table id="tableScoreBoard" class="table">
+              <div class="tHeader">
+                <div></div>
+                <h3 id="tHeader">Score Board</h3>
+                <button id="btnExport">Export</button>
+              </div>
+
+              <div class="underHead">
+                <div>
+                  <p class="gcID">Event Name:</p>
+                  <p id="eventName"></p>
+                </div>
+
+                <div>
+                  <input
+                    id="searchScoreBoard"
+                    type="text"
+                    placeholder="Search..."
+                  />
+                  <select id="sortScoreBoard">
+                    <option value="ID" selected>Round & Box</option>
+                    <option value="WinTeam">Winning Team Name</option>
+                    <option value="WinScore">Winning Team Score</option>
+                    <option value="LossTeam">Non-Winning Team Name</option>
+                    <option value="LossScore">Non-Winning Team Score</option>
+                  </select>
+                </div>
+              </div>
+
+              <tr>
+                <th>Round #</th>
+                <th>Box #</th>
+                <th>Winning Team</th>
+                <th>Score</th>
+                <th>Non-Winning Team</th>
+                <th>Score</th>
+                <th>Actions</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Modal Get Team Scores -->
+        <div class="modal-wrapper" id="getTeamScoresWrapper">
+          <div class="modal-container">
+            <form action="">
+              <h3>Update Team Scores<span>.</span></h3>
+              <p id="info01">Please fill all the information needed.</p>
+
+              <div class="txtsCont">
+                <div class="infoContainer">
+                  <p class="label">Winning Team:</p>
+                  <p id="txtWinTeamName"></p>
+                </div>
+
+                <input
+                  id="winTeamScore"
+                  type="number"
+                  placeholder="Winning Team Score"
+                  autocomplete="off"
+                  required
+                />
+
+                <div class="infoContainer">
+                  <p class="label">Non-Winning Team:</p>
+                  <p id="txtLossTeamName"></p>
+                </div>
+
+                <input
+                  id="lossTeamScore"
+                  type="number"
+                  placeholder="Non-winning Team Score"
+                  autocomplete="off"
+                  required
+                />
+              </div>
+            </form>
+
+            <div class="btn-container">
+              <button id="btnUpdateScore">Update</button>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="module" src="./adminScoreBoard.js"></script>
+  </body>
+</html>

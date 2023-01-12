@@ -1,0 +1,579 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #666666;
+  text-decoration: none;
+}
+
+#bg {
+  height: 100vh;
+  background: #f2f2f2;
+}
+
+body {
+  background: #f2f2f2;
+}
+
+button {
+  cursor: pointer;
+}
+
+header .head {
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header .head .home-title {
+  margin-left: 150px;
+  font-size: 30px;
+}
+
+header .head .home-title span {
+  color: #dc3545;
+}
+
+header .head .head-container {
+  margin-right: 150px;
+}
+
+header .head .head-container .aAccount:hover,
+header .head .head-container .btnAdminAccounts:hover,
+header .head .head-container .btnFacilities:hover {
+  text-decoration: underline;
+  color: #007bff;
+}
+
+header .head .head-container a {
+  font-size: 15px;
+  padding: 7px 30px;
+  color: #999999;
+  font-weight: bolder;
+  border-radius: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+header .head .head-container li {
+  display: inline-block;
+}
+
+header .head .head-container #btnHistory {
+  background: #d9a420;
+  color: white;
+  margin-left: 30px;
+  border: 3px solid #d9a420;
+}
+
+header .head .head-container #btnHistory:hover {
+  color: #999999;
+  background: white;
+  border-color: #999999;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+header .head .head-container #dropAccount {
+  position: relative;
+}
+
+header .head .head-container .drop-container {
+  display: none;
+  position: absolute;
+  background: white;
+  text-align: center;
+  top: 1.75rem;
+  left: -1.5rem;
+  width: 11rem;
+}
+
+header .head .head-container .drop-container a {
+  padding: 0;
+  font-weight: normal;
+  color: #666666;
+}
+
+header .head .head-container .drop-container ul li {
+  display: block;
+  padding: 20px;
+}
+
+header .head .head-container .drop-container ul li:hover {
+  background: #e6e6e6;
+  border-radius: 0;
+}
+
+header .head .head-container .update-container {
+  display: none;
+  position: absolute;
+  background: white;
+  width: 12rem;
+  top: 3.83rem;
+  left: 11rem;
+}
+
+header .head #dropAccount:hover .drop-container {
+  display: block;
+}
+
+header .head #dropUpdate:hover .update-container {
+  display: block;
+}
+
+.modal-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.26);
+  display: none;
+}
+
+.modal-wrapper .modal-container {
+  position: relative;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(242, 242, 242, 0.9))), url(./Images/Background.jpg) center/cover no-repeat;
+  background: linear-gradient(to right, rgba(242, 242, 242, 0.9)), url(./Images/Background.jpg) center/cover no-repeat;
+  text-align: center;
+  width: 400px;
+  margin: 5rem auto;
+  -webkit-box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  border-radius: 20px;
+}
+
+.modal-wrapper .modal-container form {
+  display: -ms-grid;
+  display: grid;
+  padding: 0px 40px;
+}
+
+.modal-wrapper .modal-container form h3 {
+  margin: 10px 0 0 0;
+  padding: 10px 0 0 0;
+  font-size: 23px;
+}
+
+.modal-wrapper .modal-container form h3 span {
+  font-size: 40px;
+  color: #dc3545;
+}
+
+.modal-wrapper .modal-container form p {
+  padding: 10px 25px;
+}
+
+.modal-wrapper .modal-container form input,
+.modal-wrapper .modal-container form select {
+  margin-top: 13px;
+  padding: 10px 16px;
+  border-radius: 15px;
+  border-color: transparent;
+  text-indent: 0.5rem;
+  outline: none;
+}
+
+.modal-wrapper .modal-container form input:focus,
+.modal-wrapper .modal-container form select:focus {
+  outline: 2px solid #999999;
+}
+
+.modal-wrapper .modal-container .btn-container {
+  margin: 30px 40px 0 40px;
+}
+
+.modal-wrapper .modal-container .btn-container button {
+  text-align: center;
+  padding: 7px 20px;
+  margin-bottom: 30px;
+  text-decoration: none;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  width: 15rem;
+}
+
+.modal-wrapper .modal-container .btn-container #btnUpdateDesc {
+  border: 3px solid #999999;
+  color: #999999;
+}
+
+.modal-wrapper .modal-container .btn-container #btnUpdateDesc:hover {
+  border-color: #d9a420;
+  background: #d9a420;
+  color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#passWrapper #btnUpdatePass {
+  border: 3px solid #999999;
+  color: #999999;
+}
+
+#passWrapper #btnUpdatePass:hover {
+  border-color: #d9a420;
+  background: #d9a420;
+  color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#codeWrapper #btnUpdateCode {
+  border: 3px solid #999999;
+  color: #999999;
+}
+
+#codeWrapper #btnUpdateCode:hover {
+  border-color: #d9a420;
+  background: #d9a420;
+  color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#deleteWrapper .check-container {
+  margin-top: 13px;
+}
+
+#deleteWrapper .check-container label {
+  cursor: pointer;
+}
+
+#deleteWrapper #btnDeleteAccount {
+  border: 3px solid #999999;
+  color: #999999;
+}
+
+#deleteWrapper #btnDeleteAccount:hover {
+  border-color: #dc3545;
+  background: #dc3545;
+  color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+main .container {
+  max-width: 80vw;
+  margin: 2rem auto;
+  padding-bottom: 2rem;
+}
+
+main .container .table-wrapper {
+  text-align: start;
+}
+
+main .container .table-wrapper .table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+main .container .table-wrapper .table th,
+main .container .table-wrapper .table td {
+  text-align: left;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem;
+}
+
+main .container .table-wrapper .table .onGoing {
+  font-weight: 600;
+  color: green;
+}
+
+main .container .table-wrapper .table .done {
+  font-weight: 600;
+  color: #dc3545;
+}
+
+main .container .table-wrapper .table .upcoming {
+  font-weight: 600;
+  color: #666666;
+}
+
+main .container .table-wrapper .table .show {
+  font-weight: 600;
+  color: #c3931d;
+}
+
+main .container .table-wrapper .table .tr:hover {
+  background: #f5f5f5;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+  -webkit-box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+main .container .table-wrapper .table th {
+  background: white;
+  padding: 1rem auto;
+}
+
+.tHeader {
+  width: 100%;
+  background: maroon;
+  padding: 1rem;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.tHeader h3 {
+  color: white;
+}
+
+.tHeader div {
+  width: 8rem;
+}
+
+.tHeader #btnExport {
+  width: 8rem;
+  color: white;
+  font-weight: 500;
+  background: #4caf50;
+  padding: 3px 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+.tHeader #btnExport:hover {
+  -webkit-transform: scale(1.07);
+          transform: scale(1.07);
+  -webkit-box-shadow: 2px 2px 12px rgba(255, 255, 255, 0.2), -1px -1px 8px rgba(255, 255, 255, 0.2);
+          box-shadow: 2px 2px 12px rgba(255, 255, 255, 0.2), -1px -1px 8px rgba(255, 255, 255, 0.2);
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+.underHead {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.5rem 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.underHead #btnShowCreateEvent {
+  width: 8rem;
+  height: 2rem;
+  border: none;
+  color: #666666;
+}
+
+.underHead #btnShowCreateEvent:hover {
+  color: #007bff;
+  text-decoration: underline;
+  font-weight: bold;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+.underHead #sortEvent,
+.underHead #searchEvent {
+  width: 8rem;
+  height: 2rem;
+  color: #999999;
+  border: 1px solid #999999;
+  text-indent: 0.5rem;
+}
+
+.underHead #sortEvent:focus,
+.underHead #searchEvent:focus {
+  outline: 1px solid #999999;
+}
+
+.underHead #searchEvent {
+  margin-right: 20px;
+  width: 15rem;
+}
+
+.btn {
+  background: transparent;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.btn-edit {
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.btn-edit:hover {
+  background: #007bff;
+  color: white;
+}
+
+.btn-delete {
+  color: #dc3545;
+  border: 1px solid #dc3545;
+}
+
+.btn-delete:hover {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-view {
+  color: #d9a420;
+  border: 1px solid #d9a420;
+}
+
+.btn-view:hover {
+  background: #d9a420;
+  color: white;
+}
+
+.modal-container form .syContainer {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "sy fr fr fr ln to to to";
+}
+
+.modal-container form .syContainer .sy {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: sy;
+}
+
+.modal-container form .syContainer .syStart {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 3;
+  grid-area: fr;
+}
+
+.modal-container form .syContainer .mid {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: ln;
+}
+
+.modal-container form .syContainer .syEnd {
+  -ms-grid-row: 1;
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 3;
+  grid-area: to;
+}
+
+.modal-container form .syContainer p {
+  margin-top: 13px;
+  padding: 10px 0;
+  font-weight: bold;
+}
+
+#createEventWrapper #btnCreateEvent {
+  border: 3px solid #999999;
+  color: #999999;
+}
+
+#createEventWrapper #btnCreateEvent:hover {
+  border-color: #007bff;
+  background: #007bff;
+  color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#editEventWrapper #btnEditEvent {
+  border: 3px solid #999999;
+  color: #999999;
+}
+
+#editEventWrapper #btnEditEvent:hover {
+  border-color: #007bff;
+  background: #007bff;
+  color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#deleteEventWrapper .dataContents {
+  display: -ms-grid;
+  display: grid;
+  padding: 0px 40px;
+}
+
+#deleteEventWrapper .dataContents h3 {
+  margin: 20px 0 0 0;
+  padding: 10px 0 0 0;
+  font-size: 23px;
+}
+
+#deleteEventWrapper .dataContents h3 span {
+  font-size: 40px;
+  color: #dc3545;
+}
+
+#deleteEventWrapper .dataContents .info {
+  padding: 10px 25px;
+}
+
+#deleteEventWrapper .txtsCont {
+  margin: 20px 60px;
+}
+
+#deleteEventWrapper .txtsCont .infoContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 8px 0px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+#deleteEventWrapper .txtsCont .infoContainer .label {
+  font-weight: bold;
+}
+
+#deleteEventWrapper .check-container label {
+  cursor: pointer;
+}
+
+#deleteEventWrapper #btnDeleteEvent {
+  border: 3px solid #999999;
+  color: #999999;
+}
+
+#deleteEventWrapper #btnDeleteEvent:hover {
+  border-color: #dc3545;
+  background: #dc3545;
+  color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+/*# sourceMappingURL=adminMainStyle.css.map */

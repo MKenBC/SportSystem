@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: lighten(black, 40%);
+}
+
+// System Colors
+$darkRed: rgb(128, 0, 0);
+$red: rgb(220, 53, 69);
+$orange: rgb(217, 164, 32);
+$yellow: rgb(255, 222, 0);
+$blue: rgb(0, 123, 255);
+$pupWhite: rgb(255, 255, 255);
+$bgColor: rgb(242, 242, 242);
+$primaryColor: lighten(black, 40%);

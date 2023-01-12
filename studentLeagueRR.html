@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="./studentLeagueRRStyles/studentLeagueRRStyles.css"
+    />
+    <title>PUP SportsSystem | Tournament</title>
+  </head>
+  <body>
+    <div id="bg">
+      <header>
+        <div class="head">
+          <h1 class="home-title">Sports<span>System</span></h1>
+
+          <a id="btnBack" href="./studentGames.html">Back</a>
+        </div>
+      </header>
+      <main>
+        <div class="mainContainer">
+          <!-- Tournament Bracket -->
+          <div id="tournametBracketContainer">
+            <div class="tournamentHeader">
+              <h3 id="gameName">Game Name</h3>
+
+              <div class="scoreCont">
+                <h4>Game Play: <span id="mCount"></span></h4>
+                <a id="btnScoreBoard" href="./studentScoreBoard.html"
+                  >Score Board</a
+                >
+                <a id="btnTeamRanking" href="./studentTeamRanking.html"
+                  >Team Ranking</a
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Table -->
+          <div class="container">
+            <!-- Team Details -->
+            <div class="table-wrapper">
+              <table id="tableTeamDetails" class="table">
+                <div class="tHeader01"><h3>Team Details</h3></div>
+                <div class="underHead">
+                  <div>
+                    <select id="sortTeam">
+                      <option value="TeamNumber" selected>Team Number</option>
+                      <option value="TeamName">Team Name</option>
+                      <option value="Wins">Wins</option>
+                      <option value="Losses">Losses</option>
+                    </select>
+                  </div>
+                </div>
+
+                <tr>
+                  <th>#</th>
+                  <th>Name</th>
+                  <th>Wins</th>
+                  <th>Losses</th>
+                  <th>Actions</th>
+                </tr>
+              </table>
+            </div>
+
+            <!-- Round Details -->
+            <div class="table-wrapper">
+              <table id="tableRoundDetails" class="table">
+                <div class="tHeader02"><h3>Round Schedule and Details</h3></div>
+
+                <tr>
+                  <th>#</th>
+                  <th>Date</th>
+                  <th>Game</th>
+                  <th>Status</th>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Show Team Details -->
+        <div class="modal-wrapper" id="showTeamDetails">
+          <div class="modal-container">
+            <form action="">
+              <h3>Team Details<span>.</span></h3>
+
+              <div class="txtsCont">
+                <div class="infoContainer">
+                  <p class="label">Team Number:</p>
+                  <p id="txtTeamNumber02"></p>
+                </div>
+                <div class="infoContainer">
+                  <p class="label">Team Name:</p>
+                  <p id="txtTeamName02"></p>
+                </div>
+                <div class="infoContainer">
+                  <p class="label">Wins:</p>
+                  <p id="txtWins02"></p>
+                </div>
+                <div class="infoContainer">
+                  <p class="label">Losses:</p>
+                  <p id="txtLoss02"></p>
+                </div>
+                <div class="infoContainer">
+                  <p class="label">Class:</p>
+                  <p id="txtCourseYearSection2"></p>
+                </div>
+              </div>
+              <p class="label">Members:</p>
+              <div id="memberContainer"></div>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="./studentLeagueRR.js"></script>
+  </body>
+</html>

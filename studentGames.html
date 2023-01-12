@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./studentGamesStyles/studentGamesStyles.css" />
+    <title>PUP SportsSystem | Event Games</title>
+  </head>
+  <body>
+    <div id="bg">
+      <header>
+        <div class="head">
+          <h1 class="home-title">Sports<span>System</span></h1>
+
+          <a id="btnBack" href="./studentCurrentEvent.html">Back</a>
+        </div>
+      </header>
+      <main>
+        <!-- Table -->
+        <div class="container">
+          <div class="table-wrapper">
+            <table id="tableGames" class="table">
+              <div class="tHeader"><h3 id="tHeader">Event Games</h3></div>
+
+              <div class="underHead">
+                <div>
+                  <p class="gcID">Game Collection ID:</p>
+                  <p>
+                    <abbr
+                      id="gameID"
+                      title="School Year, Event Name, Month, Day"
+                    ></abbr>
+                  </p>
+                </div>
+              </div>
+
+              <tr>
+                <th>Game Name</th>
+                <th>Tournament Size</th>
+                <th>Date</th>
+                <th>Randomize</th>
+                <th>Games Status</th>
+                <th>Actions</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Modal Game Details -->
+        <div class="modal-wrapper" id="gameDetailsWrapper">
+          <div class="modal-container">
+            <div class="dataContents">
+              <h3>Game Details<span>.</span></h3>
+            </div>
+
+            <div class="txtsCont">
+              <div class="infoContainer">
+                <p class="label">Facility:</p>
+                <p id="txtGameFacility"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">Facility Status:</p>
+                <p id="txtFacilityStatus"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">Start Date:</p>
+                <p id="txtStartDate"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">End Date:</p>
+                <p id="txtEndDate"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">Start Time:</p>
+                <p id="txtStartTime"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">End Time:</p>
+                <p id="txtEndTime"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="./studentGames.js"></script>
+  </body>
+</html>

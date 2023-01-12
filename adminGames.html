@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./adminGamesStyles/adminGamesStyles.css" />
+    <title>PUP SportsSystem - Admin | Games</title>
+    <script type="text/javascript">
+      function preventBack() {
+        window.history.forward();
+      }
+      setTimeout("preventBack()", 0);
+      window.onunload = function () {
+        null;
+      };
+    </script>
+  </head>
+  <body>
+    <div id="bg">
+      <header>
+        <div class="head">
+          <h1 class="home-title">Sports<span>System</span></h1>
+
+          <a id="btnBack" href="./adminMain.html">Back</a>
+        </div>
+      </header>
+      <main>
+        <!-- Table -->
+        <div class="container">
+          <div class="table-wrapper">
+            <table id="tableGames" class="table">
+              <div class="tHeader">
+                <div></div>
+                <h3 id="tHeader">Event Games</h3>
+                <button id="btnExport">Export</button>
+              </div>
+
+              <div class="underHead">
+                <button class="btn btnShowAdd">Add Game +</button>
+                <div>
+                  <p class="gcID">Game Collection ID:</p>
+                  <p>
+                    <abbr
+                      id="gameID"
+                      title="School Year, Event Name, Month, Day"
+                    ></abbr>
+                  </p>
+                </div>
+              </div>
+
+              <tr>
+                <th>Game Name</th>
+                <th>Tournament Size</th>
+                <th>Date</th>
+                <th>Randomize</th>
+                <th>Games Status</th>
+                <th>Actions</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- Modal Create Game -->
+        <div class="modal-wrapper" id="createGameWrapper">
+          <div class="modal-container">
+            <form action="">
+              <h3>Create Game<span>.</span></h3>
+              <p id="info01">Please fill all the information needed.</p>
+
+              <div class="contentContain">
+                <div class="right">
+                  <input
+                    id="gameName01"
+                    type="text"
+                    placeholder="Game Name"
+                    autocomplete="off"
+                    required
+                  />
+
+                  <textarea
+                    name=""
+                    id="teamNames01"
+                    rows="10"
+                    placeholder="Team Name&#10;Team Name&#10;Team Name&#10;Team Name&#10;..."
+                  ></textarea>
+
+                  <select id="selectFacility">
+                    <option value="Date" selected hidden>
+                      Select Facility
+                    </option>
+                    <option value="None">N/A (Not Applicable)</option>
+                  </select>
+                </div>
+
+                <div class="left">
+                  <div class="dateTimeCont">
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" name="startDate" id="startDate" />
+                  </div>
+
+                  <div class="dateTimeCont">
+                    <label for="endDate">End Date:</label>
+                    <input type="date" name="endDate" id="endDate" />
+                  </div>
+
+                  <div class="dateTimeCont">
+                    <label for="startTime" min="1" max="24">Start Time:</label>
+                    <input
+                      type="number"
+                      name="startTime"
+                      id="startTime"
+                      placeholder="24-hour Clock"
+                    />
+                  </div>
+
+                  <div class="dateTimeCont">
+                    <label for="endTime" min="1" max="24">End Time:</label>
+                    <input
+                      type="number"
+                      name="endTime"
+                      id="endTime"
+                      placeholder="24-hour Clock"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <select id="tournamentType01" disabled hidden>
+                <option value="" disabled hidden>Tournament Type</option>
+                <option value="Round Robin" selected>Round Robin</option>
+                <option value="Single Elimination">Single Elimination</option>
+                <option value="Double Elimination">Double Elimination</option>
+              </select>
+
+              <div class="check-container">
+                <input id="checkRandomizeGame" type="checkbox" />
+                <label for="checkRandomizeGame">Randomize Game</label>
+              </div>
+            </form>
+
+            <div class="btn-container">
+              <button id="btnCreateGame">Save</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Delete Game -->
+        <div class="modal-wrapper" id="deleteGameWrapper">
+          <div class="modal-container">
+            <div class="dataContents">
+              <h3>Delete Game<span>.</span></h3>
+              <p class="info" id="info02">
+                This will delete all the information about this game.
+              </p>
+            </div>
+
+            <div class="txtsCont">
+              <div class="infoContainer">
+                <p class="label">Game Name:</p>
+                <p id="txtGN"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">Tournament Size:</p>
+                <p id="txtTS"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">Date:</p>
+                <p id="txtDate"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">Tournament Type:</p>
+                <p id="txtTT"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">Randomize:</p>
+                <p id="txtR"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">Game Status:</p>
+                <p id="txtGS"></p>
+              </div>
+            </div>
+
+            <div class="check-container">
+              <input id="checkDeleteGame" type="checkbox" />
+              <label for="checkDeleteGame"
+                >Permanently Delete Information</label
+              >
+            </div>
+
+            <div class="btn-container">
+              <button id="btnDeleteGame">Delete</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Game Details -->
+        <div class="modal-wrapper" id="gameDetailsWrapper">
+          <div class="modal-container">
+            <div class="dataContents">
+              <h3>Game Details<span>.</span></h3>
+            </div>
+
+            <div class="txtsCont">
+              <div class="infoContainer">
+                <p class="label">Facility:</p>
+                <p id="txtGameFacility"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">Facility Status:</p>
+                <p id="txtFacilityStatus"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">Start Date:</p>
+                <p id="txtStartDate"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">End Date:</p>
+                <p id="txtEndDate"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">Start Time:</p>
+                <p id="txtStartTime"></p>
+              </div>
+              <div class="infoContainer">
+                <p class="label">End Time:</p>
+                <p id="txtEndTime"></p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="module" src="./adminGames.js"></script>
+  </body>
+</html>

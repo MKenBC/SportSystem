@@ -1,0 +1,477 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #666666;
+  text-decoration: none;
+}
+
+#bg {
+  height: 100vh;
+  width: 100vw;
+  background: #f2f2f2;
+}
+
+button,
+label {
+  cursor: pointer;
+}
+
+header .head {
+  height: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 150px;
+}
+
+header .head .home-title {
+  font-size: 30px;
+}
+
+header .head .home-title span {
+  color: #dc3545;
+}
+
+header .head #btnBack {
+  font-size: 15px;
+  font-weight: bolder;
+  padding: 7px 30px;
+  background: #d9a420;
+  color: white;
+  border: 3px solid #d9a420;
+  border-radius: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+header .head #btnBack:hover {
+  color: #999999;
+  background: white;
+  border-color: #999999;
+}
+
+main .container {
+  max-width: 80vw;
+  margin: 2rem auto;
+  padding-bottom: 2rem;
+}
+
+main .container .table-wrapper {
+  text-align: start;
+}
+
+main .container .table-wrapper .table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+main .container .table-wrapper .table th,
+main .container .table-wrapper .table td {
+  text-align: left;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 0.5rem;
+}
+
+main .container .table-wrapper .table .randTrue {
+  font-weight: 600;
+  color: #5b23f9;
+}
+
+main .container .table-wrapper .table .randFalse {
+  font-weight: 600;
+  color: #f95309;
+}
+
+main .container .table-wrapper .table .statActive {
+  font-weight: 600;
+  color: green;
+}
+
+main .container .table-wrapper .table .statFinished {
+  font-weight: 600;
+  color: #dc3545;
+}
+
+main .container .table-wrapper .table .tr:hover {
+  background: #f5f5f5;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+  -webkit-box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+main .container .table-wrapper .table th {
+  background: white;
+  padding: 1rem auto;
+}
+
+.tHeader {
+  width: 100%;
+  background: #37373d;
+  padding: 1rem;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.tHeader h3 {
+  color: #4fc1ff;
+}
+
+.tHeader div {
+  width: 8rem;
+}
+
+.tHeader #btnExport {
+  width: 8rem;
+  color: white;
+  font-weight: 500;
+  background: #4caf50;
+  padding: 3px 20px;
+  border-radius: 5px;
+  border: none;
+}
+
+.tHeader #btnExport:hover {
+  -webkit-transform: scale(1.07);
+          transform: scale(1.07);
+  -webkit-box-shadow: 2px 2px 12px rgba(255, 255, 255, 0.2), -1px -1px 8px rgba(255, 255, 255, 0.2);
+          box-shadow: 2px 2px 12px rgba(255, 255, 255, 0.2), -1px -1px 8px rgba(255, 255, 255, 0.2);
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+.btn {
+  background: transparent;
+  width: 5rem;
+  height: 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.btn-details {
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.btn-details:hover {
+  background: #007bff;
+  color: white;
+}
+
+.btn-delete {
+  color: #dc3545;
+  border: 1px solid #dc3545;
+}
+
+.btn-delete:hover {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-view {
+  color: #d9a420;
+  border: 1px solid #d9a420;
+}
+
+.btn-view:hover {
+  background: #d9a420;
+  color: white;
+}
+
+.underHead {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.5rem 2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.underHead .btnShowAdd {
+  width: 8rem;
+  height: 2rem;
+  border: none;
+  color: #666666;
+}
+
+.underHead .btnShowAdd:hover {
+  color: #007bff;
+  text-decoration: underline;
+  font-weight: bold;
+  -webkit-transition: 0.15s;
+  transition: 0.15s;
+}
+
+.underHead .gcID {
+  font-weight: bold;
+}
+
+.underHead p {
+  display: inline-block;
+}
+
+.modal-wrapper {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(0, 0, 0, 0.26);
+  display: none;
+}
+
+.modal-wrapper .modal-container {
+  position: relative;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(242, 242, 242, 0.9))), url(./Images/Background.jpg) center/cover no-repeat;
+  background: linear-gradient(to right, rgba(242, 242, 242, 0.9)), url(./Images/Background.jpg) center/cover no-repeat;
+  text-align: center;
+  width: 400px;
+  margin: 5rem auto;
+  -webkit-box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 4px 22px -6px rgba(0, 0, 0, 0.75);
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  border-radius: 20px;
+}
+
+.modal-wrapper .modal-container form {
+  display: -ms-grid;
+  display: grid;
+  padding: 0px 40px;
+}
+
+.modal-wrapper .modal-container form h3 {
+  margin: 10px 0 0 0;
+  padding: 10px 0 0 0;
+  font-size: 23px;
+}
+
+.modal-wrapper .modal-container form h3 span {
+  font-size: 40px;
+  color: #dc3545;
+}
+
+.modal-wrapper .modal-container form p {
+  padding: 10px 25px;
+}
+
+.modal-wrapper .modal-container form input,
+.modal-wrapper .modal-container form select {
+  margin-top: 13px;
+  padding: 10px 16px;
+  border-radius: 15px;
+  border-color: transparent;
+  text-indent: 0.5rem;
+  outline: none;
+}
+
+.modal-wrapper .modal-container form input:focus,
+.modal-wrapper .modal-container form select:focus {
+  outline: 2px solid #999999;
+}
+
+.modal-wrapper .modal-container form textarea {
+  width: 100%;
+  margin-top: 13px;
+  padding: 10px 16px;
+  border-radius: 15px;
+  border-color: transparent;
+  outline: none;
+  resize: none;
+}
+
+.modal-wrapper .modal-container form textarea:focus {
+  outline: 2px solid #999999;
+}
+
+.modal-wrapper .modal-container form .check-container {
+  margin-top: 13px;
+}
+
+.modal-wrapper .modal-container .btn-container {
+  margin: 30px 40px 0 40px;
+}
+
+.modal-wrapper .modal-container .btn-container button {
+  text-align: center;
+  padding: 7px 20px;
+  margin-bottom: 30px;
+  text-decoration: none;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 20px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  width: 15rem;
+}
+
+.modal-wrapper .modal-container .btn-container #btnCreateGame {
+  border: 3px solid #999999;
+  color: #999999;
+}
+
+.modal-wrapper .modal-container .btn-container #btnCreateGame:hover {
+  border-color: #d9a420;
+  background: #d9a420;
+  color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#deleteGameWrapper .dataContents,
+#gameDetailsWrapper .dataContents {
+  display: -ms-grid;
+  display: grid;
+  padding: 0px 40px;
+}
+
+#deleteGameWrapper .dataContents h3,
+#gameDetailsWrapper .dataContents h3 {
+  margin: 20px 0 0 0;
+  padding: 10px 0 0 0;
+  font-size: 23px;
+}
+
+#deleteGameWrapper .dataContents h3 span,
+#gameDetailsWrapper .dataContents h3 span {
+  font-size: 40px;
+  color: #dc3545;
+}
+
+#deleteGameWrapper .dataContents .info,
+#gameDetailsWrapper .dataContents .info {
+  padding: 10px 25px;
+}
+
+#deleteGameWrapper .txtsCont,
+#gameDetailsWrapper .txtsCont {
+  margin: 20px 60px;
+}
+
+#deleteGameWrapper .txtsCont .infoContainer,
+#gameDetailsWrapper .txtsCont .infoContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 8px 0px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+#deleteGameWrapper .txtsCont .infoContainer .label,
+#gameDetailsWrapper .txtsCont .infoContainer .label {
+  font-weight: bold;
+}
+
+#deleteGameWrapper .check-container label,
+#gameDetailsWrapper .check-container label {
+  cursor: pointer;
+}
+
+#deleteGameWrapper #btnDeleteGame,
+#gameDetailsWrapper #btnDeleteGame {
+  border: 3px solid #999999;
+  color: #999999;
+}
+
+#deleteGameWrapper #btnDeleteGame:hover,
+#gameDetailsWrapper #btnDeleteGame:hover {
+  border-color: #dc3545;
+  background: #dc3545;
+  color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+#createGameWrapper .modal-container {
+  width: 800px;
+}
+
+#createGameWrapper .modal-container h3 {
+  padding: 0;
+}
+
+#createGameWrapper .modal-container .contentContain {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+#createGameWrapper .modal-container .contentContain .right {
+  margin-right: 20px;
+}
+
+#createGameWrapper .modal-container .contentContain .right input,
+#createGameWrapper .modal-container .contentContain .right select {
+  width: 100%;
+}
+
+#createGameWrapper .modal-container .contentContain .left {
+  padding-top: 30px;
+  margin-left: 20px;
+}
+
+#createGameWrapper .modal-container .contentContain .left .dateTimeCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 8px 0px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+#createGameWrapper .modal-container .contentContain .left .dateTimeCont input {
+  margin: 0;
+  width: 65%;
+}
+
+#createGameWrapper .modal-container .contentContain .left .dateTimeCont label {
+  padding-top: 10px;
+  font-weight: bold;
+}
+
+#gameDetailsWrapper .modal-container {
+  margin-top: 10rem;
+}
+
+#gameDetailsWrapper .modal-container .txtsCont {
+  padding-bottom: 50px;
+}
+
+#gameDetailsWrapper .modal-container .txtsCont #txtFacilityStatus {
+  font-weight: 600;
+}
+/*# sourceMappingURL=subAdminGameStyles.css.map */

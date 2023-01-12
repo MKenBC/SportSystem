@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./indexStyles/indexStyle.css" />
+    <title>PUP SportsSystem</title>
+    <script type="text/javascript">
+      function preventBack() {
+        window.history.forward();
+      }
+      setTimeout("preventBack()", 0);
+      window.onunload = function () {
+        null;
+      };
+    </script>
+  </head>
+  <body>
+    <div id="bg">
+      <header>
+        <div class="head">
+          <h1>Sports<span>System</span></h1>
+          <div>
+            <a id="btnCreateAccount" href="./subAdminCreateAccount.html"
+              >Sign Up</a
+            >
+            <a id="btnLogin" href="#">Login</a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="main">
+          <img src="./indexStyles/Images/PUP Logo.png" alt="PUP Logo" />
+          <h2>Polytechnic University of the Philippines</h2>
+          <h3>Sta Maria, Bulacan Branch</h3>
+
+          <div class="btn-container">
+            <a id="btnStudent" href="./studentMain.html">Students</a>
+
+            <a id="btnSis" href="https://sisstudents.pup.edu.ph" target="_blank"
+              >Go to PUP SIS</a
+            >
+          </div>
+        </div>
+        <div class="logo">
+          <img
+            src="./indexStyles/Images/SportsLanding.png"
+            alt="Sports Image"
+          />
+        </div>
+      </main>
+
+      <script type="module" src="./index.js"></script>
+    </div>
+  </body>
+</html>

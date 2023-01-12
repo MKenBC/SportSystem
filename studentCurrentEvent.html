@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="./studentCurrentEventStyles/studentCurrentEventStyles.css"
+    />
+    <title>PUP SportsSystem | Events</title>
+  </head>
+  <body>
+    <div id="bg">
+      <header>
+        <div class="head">
+          <h1 class="home-title">Sports<span>System</span></h1>
+
+          <a id="btnBack" href="./studentMain.html">Back</a>
+        </div>
+      </header>
+      <main>
+        <!-- Table -->
+        <div class="container">
+          <div class="table-wrapper">
+            <table id="tableEvents" class="table">
+              <div class="tHeader"><h3>Current Events</h3></div>
+
+              <div class="underHead">
+                <input id="searchEvent" type="text" placeholder="Search..." />
+                <select id="sortEvent">
+                  <option value="From">School Year</option>
+                  <option value="EventName">Event Name</option>
+                  <option value="Date" selected>Date</option>
+                </select>
+              </div>
+
+              <tr>
+                <th>School Year</th>
+                <th>Event Name</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="./studentCurrentEvent.js"></script>
+  </body>
+</html>
